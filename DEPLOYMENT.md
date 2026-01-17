@@ -23,13 +23,14 @@ git push -u origin main
 ### 3. Set Frontend Environment Variables
 In Vercel Dashboard:
 - Go to your project → **Settings** → **Environment Variables**
-- Add (if needed, usually auto-detected):
+- Add these (you'll update API_BASE after deploying backend):
   ```
-  NEXT_PUBLIC_API_BASE=https://your-backend-railway.up.railway.app
+  NEXT_PUBLIC_API_BASE=https://studycrate-backend.onrender.com
   NEXT_PUBLIC_BRAND_NAME=StudyCrate
   NEXT_PUBLIC_SUPPORT_EMAIL=csrepo34@gmail.com
   ```
-- Re-deploy to apply changes
+- **Note**: Set `NEXT_PUBLIC_API_BASE` after you get your Render backend URL (step from Backend Deployment section)
+- After adding/updating env vars, go to **Deployments** → Redeploy latest
 
 ---
 
