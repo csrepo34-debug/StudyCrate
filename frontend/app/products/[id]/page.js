@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
-import { PRODUCTS } from '@/lib/products';
-import BuyButton from '@/components/BuyButton';
+import { PRODUCTS } from '../../../lib/products';
+import BuyButton from '../../../components/BuyButton';
 
 export default function ProductDetail({ params }) {
   const product = PRODUCTS.find((p) => p._id === params.id);
