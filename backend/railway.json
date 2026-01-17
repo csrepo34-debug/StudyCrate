@@ -1,0 +1,37 @@
+{
+  "name": "edu-digital-backend",
+  "plan": "pro",
+  "runtime": "node",
+  "buildCommand": "npm install",
+  "startCommand": "npm start",
+  "env": {
+    "PORT": {
+      "description": "Server port",
+      "value": "5000"
+    },
+    "JWT_SECRET": {
+      "description": "JWT secret key",
+      "value": ""
+    },
+    "RAZORPAY_KEY_ID": {
+      "description": "Razorpay test/live key ID",
+      "value": ""
+    },
+    "RAZORPAY_KEY_SECRET": {
+      "description": "Razorpay test/live key secret",
+      "value": ""
+    },
+    "CLIENT_URL": {
+      "description": "Frontend deployed URL",
+      "value": "https://your-frontend.vercel.app"
+    },
+    "MAIL_FROM": {
+      "description": "Email sender address",
+      "value": "support@studycrate.com"
+    },
+    "FILE_STORAGE_ROOT": {
+      "description": "File upload directory",
+      "value": "./uploads"
+    }
+  }
+}

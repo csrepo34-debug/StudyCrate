@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-slate-50 text-slate-900;
+}
+
+.btn-primary {
+  @apply px-4 py-2 rounded bg-brand-accent text-white font-semibold hover:bg-emerald-500 transition;
+}
+
+.card {
+  @apply border border-slate-200 rounded-lg p-4 bg-white shadow-sm;
+}
