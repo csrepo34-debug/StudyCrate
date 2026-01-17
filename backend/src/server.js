@@ -8,7 +8,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import Razorpay from 'razorpay';
-import { sendEmail } from './utils/mailer.js';
+import { sendReceipt } from './utils/mailer.js';
 
 dotenv.config();
 
@@ -106,7 +106,7 @@ app.post('/api/verify', async (req, res) => {
 
     // Send email with download link
     const downloadLink = `${process.env.CLIENT_URL}/download/${token}`;
-    await sendEmail({
+    await sendReceipt({
       to: customer_email,
       subject: `Your purchase: ${order.productTitle}`,
       html: `
