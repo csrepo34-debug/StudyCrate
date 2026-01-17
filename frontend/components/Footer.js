@@ -1,11 +1,11 @@
 import Link from 'next/link';
 
 const links = [
-  { href: '/(legal)/privacy', label: 'Privacy Policy' },
-  { href: '/(legal)/terms', label: 'Terms & Conditions' },
-  { href: '/(legal)/refund', label: 'Refund & Cancellation' },
-  { href: '/(legal)/about', label: 'About Us' },
-  { href: '/(legal)/contact', label: 'Contact Us' }
+  { href: '/privacy', label: 'Privacy Policy' },
+  { href: '/terms', label: 'Terms & Conditions' },
+  { href: '/refund', label: 'Refund & Cancellation' },
+  { href: '/about', label: 'About Us' },
+  { href: '/contact', label: 'Contact Us' }
 ];
 
 export default function Footer() {

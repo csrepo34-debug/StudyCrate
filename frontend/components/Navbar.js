@@ -7,7 +7,7 @@ export default function Navbar() {
         <Link href="/" className="font-bold text-xl text-brand">StudyCrate</Link>
         <nav className="flex items-center gap-4 text-sm">
           <Link href="/products">Products</Link>
-          <Link href="/(legal)/contact">Contact</Link>
+          <Link href="/contact">Contact</Link>
         </nav>
       </div>
     </header>
