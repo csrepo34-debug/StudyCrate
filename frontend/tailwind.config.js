@@ -6,10 +6,10 @@ module.exports = {
     extend: {
       colors: {
         brand: {
-          DEFAULT: '#1E293B', // primary text (light mode)
-          secondary: '#475569',
-          muted: '#64748B',
-          background: '#F8FAFC',
+          DEFAULT: '#111827', // primary text (light mode)
+          secondary: '#374151',
+          muted: '#6B7280',
+          background: '#F9FAFB',
           accent: '#2563EB',
           accentHover: '#1D4ED8',
           border: '#E5E7EB',

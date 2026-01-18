@@ -4,40 +4,40 @@
 
 :root {
   /* Light mode */
-  --color-bg: #f8fafc;
-  --color-surface: #ffffff;
-  --color-text-primary: #1e293b;
-  --color-text-secondary: #475569;
-  --color-text-muted: #64748b;
-  --color-border: #e5e7eb;
-  --color-accent: #2563eb;
-  --color-accent-hover: #1d4ed8;
+  --color-bg: #f9fafb; /* Page Background */
+  --color-surface: #ffffff; /* Surface / Cards */
+  --color-text-primary: #111827; /* Primary Text */
+  --color-text-secondary: #374151; /* Secondary Text */
+  --color-text-muted: #6b7280; /* Muted Text */
+  --color-border: #e5e7eb; /* Borders / Dividers */
+  --color-accent: #2563eb; /* Primary Accent */
+  --color-accent-hover: #1d4ed8; /* Accent Hover */
   --color-success: #16a34a;
   --color-warning: #d97706;
   --color-error: #dc2626;
 
-  --color-code-bg: #f1f5f9;
-  --color-code-text: #0f172a;
-  --color-inline-code-bg: #e2e8f0;
+  --color-code-bg: #f1f5f9; /* Code BG */
+  --color-code-text: #0f172a; /* Code Text */
+  --color-inline-code-bg: #e5e7eb; /* Inline Code BG */
 }
 
 html.dark {
   /* Dark mode */
-  --color-bg: #0f172a;
-  --color-surface: #111827;
-  --color-text-primary: #e5e7eb;
-  --color-text-secondary: #cbd5e1;
-  --color-text-muted: #94a3b8;
-  --color-border: #1f2937;
-  --color-accent: #60a5fa;
-  --color-accent-hover: #3b82f6;
+  --color-bg: #0b1220; /* Page Background */
+  --color-surface: #111827; /* Surface / Cards */
+  --color-text-primary: #f3f4f6; /* Primary Text */
+  --color-text-secondary: #d1d5db; /* Secondary Text */
+  --color-text-muted: #9ca3af; /* Muted Text */
+  --color-border: #1f2937; /* Borders / Dividers */
+  --color-accent: #60a5fa; /* Primary Accent */
+  --color-accent-hover: #3b82f6; /* Accent Hover */
   --color-success: #22c55e;
   --color-warning: #f59e0b;
   --color-error: #f87171;
 
-  --color-code-bg: #020617;
-  --color-code-text: #e5e7eb;
-  --color-inline-code-bg: #1e293b;
+  --color-code-bg: #020617; /* Code BG */
+  --color-code-text: #e5e7eb; /* Code Text */
+  --color-inline-code-bg: #1e293b; /* Inline Code BG */
 }
 
 body {
