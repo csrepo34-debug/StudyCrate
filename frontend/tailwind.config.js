@@ -5,8 +5,12 @@ module.exports = {
     extend: {
       colors: {
         brand: {
-          DEFAULT: '#0f172a',
-          accent: '#22c55e'
+          DEFAULT: '#111827', // primary (graphite / dark slate)
+          secondary: '#374151', // cool gray
+          background: '#F9FAFB', // light gray background
+          text: '#111827', // main text
+          accent: '#4F46E5', // indigo accent
+          muted: '#6B7280' // muted gray text
         }
       }
     }
