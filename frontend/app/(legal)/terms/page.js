@@ -10,7 +10,7 @@ export default function TermsPage() {
       <h1 className="text-2xl font-semibold">1. Terms and Conditions (Terms of Use)</h1>
 
       <section className="space-y-2">
-        <h3 className="text-xl font-semibold">1.1 Acceptance of Terms</h3>
+        <h2 className="text-xl font-semibold">1.1 Acceptance of Terms</h2>
         <p>
           By accessing or using <strong>StudyCrate</strong> (the "Website"), you agree to be bound by these Terms and
           Conditions. If you do not agree, you must discontinue use of the Website immediately.
@@ -18,7 +18,7 @@ export default function TermsPage() {
       </section>
 
       <section className="space-y-2">
-        <h3 className="text-xl font-semibold">1.2 Eligibility</h3>
+        <h2 className="text-xl font-semibold">1.2 Eligibility</h2>
         <p>
           The Website is intended for users who are legally capable of entering into binding agreements under Indian
           law. If you are under 18, you must use the Website under parental or guardian supervision.
@@ -26,7 +26,7 @@ export default function TermsPage() {
       </section>
 
       <section className="space-y-2">
-        <h3 className="text-xl font-semibold">1.3 Nature of Services</h3>
+        <h2 className="text-xl font-semibold">1.3 Nature of Services</h2>
         <p>StudyCrate provides:</p>
         <ul className="list-disc list-inside space-y-1">
           <li>Educational content related to Computer Science</li>
@@ -37,7 +37,7 @@ export default function TermsPage() {
       </section>
 
       <section className="space-y-2">
-        <h3 className="text-xl font-semibold">1.4 User Conduct</h3>
+        <h2 className="text-xl font-semibold">1.4 User Conduct</h2>
         <p>Users agree NOT to:</p>
         <ul className="list-disc list-inside space-y-1">
           <li>Copy, reproduce, or distribute content without permission</li>
@@ -51,7 +51,7 @@ export default function TermsPage() {
       </section>
 
       <section className="space-y-2">
-        <h3 className="text-xl font-semibold">1.5 Account Creation (Future)</h3>
+        <h2 className="text-xl font-semibold">1.5 Account Creation (Future)</h2>
         <p>
           StudyCrate may introduce user accounts in the future. Additional terms may apply when account features are
           launched.
@@ -59,7 +59,7 @@ export default function TermsPage() {
       </section>
 
       <section className="space-y-2">
-        <h3 className="text-xl font-semibold">1.6 Paid Content &amp; One-Time Purchase Policy</h3>
+        <h2 className="text-xl font-semibold">1.6 Paid Content &amp; One-Time Purchase Policy</h2>
         <ul className="list-disc list-inside space-y-1">
           <li>Certain files and resources are available only after a one-time payment.</li>
           <li>Once purchased, users may re-download the files without additional payment.</li>
@@ -69,7 +69,7 @@ export default function TermsPage() {
       </section>
 
       <section className="space-y-2">
-        <h3 className="text-xl font-semibold">1.7 Intellectual Property</h3>
+        <h2 className="text-xl font-semibold">1.7 Intellectual Property</h2>
         <p>
           All content on StudyCrate, unless otherwise stated, is the intellectual property of StudyCrate. Unauthorized
           use, copying, or redistribution is strictly prohibited.
@@ -77,7 +77,7 @@ export default function TermsPage() {
       </section>
 
       <section className="space-y-2">
-        <h3 className="text-xl font-semibold">1.8 Limitation of Liability</h3>
+        <h2 className="text-xl font-semibold">1.8 Limitation of Liability</h2>
         <p>StudyCrate shall not be liable for:</p>
         <ul className="list-disc list-inside space-y-1">
           <li>Errors or omissions in content</li>
@@ -88,7 +88,7 @@ export default function TermsPage() {
       </section>
 
       <section className="space-y-2">
-        <h3 className="text-xl font-semibold">1.9 Modifications</h3>
+        <h2 className="text-xl font-semibold">1.9 Modifications</h2>
         <p>
           StudyCrate reserves the right to modify these Terms at any time. Continued use of the Website constitutes
           acceptance of updated terms.
@@ -96,7 +96,7 @@ export default function TermsPage() {
       </section>
 
       <section className="space-y-2">
-        <h3 className="text-xl font-semibold">1.10 Governing Law</h3>
+        <h2 className="text-xl font-semibold">1.10 Governing Law</h2>
         <p>
           These Terms are governed by the laws of India, and courts in India shall have exclusive jurisdiction.
         </p>
@@ -104,19 +104,18 @@ export default function TermsPage() {
 
       <section className="space-y-2">
         <h1 className="text-xl font-semibold">2. Disclaimer</h1>
-        <h3 className="font-semibold">2.1 Educational Disclaimer</h3>
+        <h2 className="font-semibold">2.1 Educational Disclaimer</h2>
         <p>All content on StudyCrate is provided strictly for educational and informational purposes only.</p>
-
-        <h3 className="font-semibold">2.2 No Professional Advice</h3>
+  <h2 className="font-semibold">2.2 No Professional Advice</h2>
         <p>The content does not constitute professional, legal, financial, or commercial advice.</p>
 
-        <h3 className="font-semibold">2.3 Accuracy Disclaimer</h3>
+        <h2 className="font-semibold">2.3 Accuracy Disclaimer</h2>
         <p>
           No guarantees are made regarding correctness, completeness, or suitability for any specific purpose of any
           content or resource.
         </p>
 
-        <h3 className="font-semibold">2.4 Use at Your Own Risk</h3>
+        <h2 className="font-semibold">2.4 Use at Your Own Risk</h2>
         <p>
           Any implementation of code, techniques, or concepts is done at the user&apos;s own risk. StudyCrate is not
           responsible for any direct or indirect consequences resulting from their use.
@@ -139,13 +138,12 @@ export default function TermsPage() {
       <section className="space-y-2">
         <h1 className="text-xl font-semibold">4. Code Licensing Policy</h1>
 
-        <h3 className="font-semibold">4.1 Open Source Licenses</h3>
+        <h2 className="font-semibold">4.1 Open Source Licenses</h2>
         <p>
           Unless explicitly stated otherwise, code examples may reference permissive open-source licenses such as the
           MIT License or Apache License 2.0. License details will be clearly mentioned per resource where applicable.
         </p>
-
-        <h3 className="font-semibold">4.2 Restrictions on Paid Content</h3>
+  <h2 className="font-semibold">4.2 Restrictions on Paid Content</h2>
         <p>For paid downloadable content:</p>
         <ul className="list-disc list-inside space-y-1">
           <li>Copying is not permitted.</li>
@@ -161,7 +159,7 @@ export default function TermsPage() {
       <section className="space-y-2">
         <h1 className="text-xl font-semibold">5. Copyright Notice</h1>
         <p>
-          <p>© {new Date().getFullYear()}</p><strong>StudyCrate</strong>. All rights reserved. No part of this Website or its content may be
+          <p>© {new Date().getFullYear()}<strong>StudyCrate</strong>. All rights reserved. No part of this Website or its content may be</p>
           reproduced, stored, or transmitted without prior written permission.
         </p>
       </section>
