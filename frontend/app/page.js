@@ -2,6 +2,8 @@ import Link from 'next/link';
 
 const categories = ['Programming', 'DSA', 'ML', 'DS', 'DAA', 'Others'];
 
+const sampleDownloadUrl = `${process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:5000'}/api/sample-download`;
+
 export default function HomePage() {
   return (
     <div className="space-y-8">
@@ -15,7 +17,7 @@ export default function HomePage() {
         <p className="max-w-2xl mx-auto" style={{ color: 'var(--color-text-secondary)' }}>
           Secure PDFs, code packs, and notes.
         </p>
-        <div className="flex justify-center gap-3">
+        <div className="flex flex-wrap justify-center gap-3">
           <Link className="btn-primary" href="/products">
             Browse products
           </Link>
@@ -26,6 +28,15 @@ export default function HomePage() {
           >
             Login
           </Link>
+          <a
+            className="px-4 py-2 rounded border"
+            href={sampleDownloadUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ borderColor: 'var(--color-border)', color: 'var(--color-text-secondary)' }}
+          >
+            Download sample
+          </a>
         </div>
       </section>
 

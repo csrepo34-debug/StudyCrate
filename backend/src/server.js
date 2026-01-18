@@ -152,6 +152,16 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
+// Provide a free sample download
+app.get('/api/sample-download', (_req, res) => {
+  const samplePath = path.join(__dirname, '..', 'uploads', 'studycrate-sample.txt');
+  if (!fs.existsSync(samplePath)) {
+    return res.status(404).json({ message: 'Sample not available' });
+  }
+
+  res.download(samplePath, 'StudyCrate-sample.txt');
+});
+
 // Download file with token verification
 app.get('/api/download/:token', (req, res) => {
   try {
