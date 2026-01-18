@@ -108,15 +108,22 @@ export default function TermsPage() {
       <section className="space-y-2">
         <h2 className="font-semibold">2.1 Educational Disclaimer</h2>
         <p>All content on StudyCrate is provided strictly for educational and informational purposes only.</p>
+      </section>
+
+      <section className="space-y-2">
         <h2 className="font-semibold">2.2 No Professional Advice</h2>
         <p>The content does not constitute professional, legal, financial, or commercial advice.</p>
-
+      </section>
+      
+      <section className="space-y-2">
         <h2 className="font-semibold">2.3 Accuracy Disclaimer</h2>
         <p>
           No guarantees are made regarding correctness, completeness, or suitability for any specific purpose of any
           content or resource.
         </p>
+      </section>
 
+      <section className="space-y-2">
         <h2 className="font-semibold">2.4 Use at Your Own Risk</h2>
         <p>
           Any implementation of code, techniques, or concepts is done at the user&apos;s own risk. StudyCrate is not
@@ -124,7 +131,7 @@ export default function TermsPage() {
         </p>
       </section>
 
-      
+
       <h1 className="text-2xl font-semibold">3. Ethical Use Policy (Mandatory)</h1>
 
       <section className="space-y-2">
@@ -149,6 +156,9 @@ export default function TermsPage() {
           Unless explicitly stated otherwise, code examples may reference permissive open-source licenses such as the
           MIT License or Apache License 2.0. License details will be clearly mentioned per resource where applicable.
         </p>
+      </section>
+
+      <section className="space-y-2">
         <h2 className="font-semibold">4.2 Restrictions on Paid Content</h2>
         <p>For paid downloadable content:</p>
         <ul className="list-disc list-inside space-y-1">
@@ -166,7 +176,7 @@ export default function TermsPage() {
 
       <section className="space-y-2">
         <p>
-          <p>© {new Date().getFullYear()}<strong>StudyCrate</strong>. All rights reserved. No part of this Website or its content may be</p>
+          <p>© {new Date().getFullYear()}<strong> StudyCrate</strong>. All rights reserved. No part of this Website or its content may be</p>
           reproduced, stored, or transmitted without prior written permission.
         </p>
       </section>
