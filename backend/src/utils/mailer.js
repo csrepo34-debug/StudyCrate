@@ -26,13 +26,17 @@ const ensureMailConfigured = () => {
 export const sendReceipt = async ({ to, subject, text, html }) => {
   if (!ensureMailConfigured()) return;
   const transporterInstance = getTransporter();
-  await transporterInstance.sendMail({
-    from: process.env.MAIL_FROM || 'support@brandname.com',
-    to,
-    subject,
-    text,
-    html
-  });
+  try {
+    await transporterInstance.sendMail({
+      from: process.env.MAIL_FROM || 'support@brandname.com',
+      to,
+      subject,
+      text,
+      html
+    });
+  } catch (err) {
+    console.error('Error sending receipt email (continuing without email):', err?.message || err);
+  }
 };
 
 export const sendContactMessage = async ({ name, email, message }) => {
@@ -49,13 +53,16 @@ export const sendContactMessage = async ({ name, email, message }) => {
     <p><strong>Message:</strong></p>
     <p>${message?.replace(/\n/g, '<br/>')}</p>
   `;
-
-  await transporterInstance.sendMail({
-    from: process.env.MAIL_FROM || 'support@brandname.com',
-    to: toAddress,
-    replyTo: email,
-    subject,
-    text,
-    html
-  });
+  try {
+    await transporterInstance.sendMail({
+      from: process.env.MAIL_FROM || 'support@brandname.com',
+      to: toAddress,
+      replyTo: email,
+      subject,
+      text,
+      html
+    });
+  } catch (err) {
+    console.error('Error sending contact email (continuing without email):', err?.message || err);
+  }
 };
