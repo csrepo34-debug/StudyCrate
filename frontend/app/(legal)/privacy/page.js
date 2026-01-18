@@ -56,7 +56,9 @@ export default function PrivacyPage() {
         <p>Requests can be made via the official contact email listed on the Contact page.</p>
       </section>
 
-      <p className="text-sm text-gray-600">Last Updated: 2026</p>
+      <p className="text-sm" style={{ color: 'var(--color-text-muted)' }}>
+        Last Updated: 2026
+      </p>
     </div>
   );
 }

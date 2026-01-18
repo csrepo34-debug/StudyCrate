@@ -95,7 +95,9 @@ export default function RefundPage() {
         </ul>
       </section>
 
-      <p className="text-sm text-gray-600">Last Updated: 2026</p>
+      <p className="text-sm" style={{ color: 'var(--color-text-muted)' }}>
+        Last Updated: 2026
+      </p>
     </div>
   );
 }
