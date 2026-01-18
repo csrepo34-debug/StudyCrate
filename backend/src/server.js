@@ -8,7 +8,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import Razorpay from 'razorpay';
-import { sendReceipt } from './utils/mailer.js';
+import { sendReceipt, sendContactMessage } from './utils/mailer.js';
 
 dotenv.config();
 
@@ -131,6 +131,24 @@ app.post('/api/verify', async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: 'Verification failed' });
+  }
+});
+
+// Contact form endpoint
+app.post('/api/contact', async (req, res) => {
+  try {
+    const { name, email, message } = req.body || {};
+
+    if (!name || !email || !message) {
+      return res.status(400).json({ message: 'Name, email, and message are required.' });
+    }
+
+    await sendContactMessage({ name, email, message });
+
+    res.json({ message: 'Your message has been sent. Thank you for reaching out!' });
+  } catch (err) {
+    console.error('Error handling contact form submission:', err);
+    res.status(500).json({ message: 'Unable to send your message right now. Please try again later.' });
   }
 });
 

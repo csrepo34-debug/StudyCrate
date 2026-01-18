@@ -6,10 +6,9 @@ export default function HomePage() {
   return (
     <div className="space-y-8">
       <section className="text-center space-y-3">
-        <p className="text-sm uppercase tracking-wide text-slate-500">Anonymous brand</p>
         <h1 className="text-3xl md:text-4xl font-bold text-slate-900">StudyCrate – Digital study kits for hustling students</h1>
         <p className="text-slate-600 max-w-2xl mx-auto">
-          Secure PDFs, code packs, and notes with Razorpay test checkout. Private downloads, no personal identity exposed.
+          Secure PDFs, code packs, and notes.
         </p>
         <div className="flex justify-center gap-3">
           <Link className="btn-primary" href="/products">

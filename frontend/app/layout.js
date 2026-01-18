@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'StudyCrate | Digital Study Shop',
-  description: 'Anonymous digital content store for students'
+  description: 'Digital content store for students'
 };
 
 export default function RootLayout({ children }) {
