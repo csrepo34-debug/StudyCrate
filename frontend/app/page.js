@@ -15,7 +15,7 @@ export default function HomePage() {
           <Link className="btn-primary" href="/products">
             Browse products
           </Link>
-          <Link className="px-4 py-2 rounded border border-slate-300" href="/(auth)/login">
+          <Link className="px-4 py-2 rounded border border-slate-300" href="/login">
             Login
           </Link>
         </div>
