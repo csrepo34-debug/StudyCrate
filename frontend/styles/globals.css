@@ -43,7 +43,7 @@ html.dark {
 body {
   min-height: 100vh;
   background-color: var(--color-bg);
-  color: var(--color-text-primary);
+  color: var(--color-text-secondary);
 }
 
 .btn-primary {
