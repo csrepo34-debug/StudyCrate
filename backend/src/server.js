@@ -162,6 +162,16 @@ app.get('/api/sample-download', (_req, res) => {
   res.download(samplePath, 'StudyCrate-sample.pdf');
 });
 
+app.get('/api/sample-notebook', (_req, res) => {
+  const notebookPath = path.join(__dirname, '..', 'uploads', 'studycrate-sample-notebook.ipynb');
+
+  if (!fs.existsSync(notebookPath)) {
+    return res.status(404).json({ message: 'Sample notebook not available' });
+  }
+
+  res.download(notebookPath, 'StudyCrate-sample-notebook.ipynb');
+});
+
 // Download file with token verification
 app.get('/api/download/:token', (req, res) => {
   try {

@@ -2,7 +2,9 @@ import Link from 'next/link';
 
 const categories = ['Programming', 'DSA', 'ML', 'DS', 'DAA', 'Others'];
 
-const sampleDownloadUrl = `${process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:5000'}/api/sample-download`;
+const apiBase = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:5000';
+const sampleDownloadUrl = `${apiBase}/api/sample-download`;
+const sampleNotebookUrl = `${apiBase}/api/sample-notebook`;
 
 export default function HomePage() {
   return (
@@ -36,6 +38,15 @@ export default function HomePage() {
             style={{ borderColor: 'var(--color-border)', color: 'var(--color-text-secondary)' }}
           >
             Download sample
+          </a>
+          <a
+            className="px-4 py-2 rounded border"
+            href={sampleNotebookUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ borderColor: 'var(--color-border)', color: 'var(--color-text-secondary)' }}
+          >
+            Download sample notebook
           </a>
         </div>
       </section>
