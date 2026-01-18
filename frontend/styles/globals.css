@@ -2,20 +2,80 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Light mode */
+  --color-bg: #f8fafc;
+  --color-surface: #ffffff;
+  --color-text-primary: #1e293b;
+  --color-text-secondary: #475569;
+  --color-text-muted: #64748b;
+  --color-border: #e5e7eb;
+  --color-accent: #2563eb;
+  --color-accent-hover: #1d4ed8;
+  --color-success: #16a34a;
+  --color-warning: #d97706;
+  --color-error: #dc2626;
+
+  --color-code-bg: #f1f5f9;
+  --color-code-text: #0f172a;
+  --color-inline-code-bg: #e2e8f0;
+}
+
+html.dark {
+  /* Dark mode */
+  --color-bg: #0f172a;
+  --color-surface: #111827;
+  --color-text-primary: #e5e7eb;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #94a3b8;
+  --color-border: #1f2937;
+  --color-accent: #60a5fa;
+  --color-accent-hover: #3b82f6;
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-error: #f87171;
+
+  --color-code-bg: #020617;
+  --color-code-text: #e5e7eb;
+  --color-inline-code-bg: #1e293b;
+}
+
 body {
-  @apply bg-brand-background text-brand-text;
+  min-height: 100vh;
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
 }
 
 .btn-primary {
-  @apply px-4 py-2 rounded bg-brand-accent text-white font-semibold hover:bg-indigo-700 transition;
+  @apply px-4 py-2 rounded font-semibold transition;
+  background-color: var(--color-accent);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent-hover);
 }
 
 .card {
-  @apply border border-gray-200 rounded-lg p-4 bg-white shadow-sm;
+  @apply rounded-lg p-4 shadow-sm;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
 }
 
 code,
 pre {
   font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
     'Courier New', monospace;
+}
+
+pre {
+  background-color: var(--color-code-bg);
+  color: var(--color-code-text);
+}
+
+code:not(pre code) {
+  background-color: var(--color-inline-code-bg);
+  color: var(--color-code-text);
+  padding: 0.1rem 0.3rem;
+  border-radius: 0.25rem;
 }

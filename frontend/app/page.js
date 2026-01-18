@@ -28,16 +28,6 @@ export default function HomePage() {
           </div>
         ))}
       </section>
-
-      <section className="card">
-        <h2 className="text-xl font-semibold mb-2">Compliance & safety</h2>
-        <ul className="list-disc list-inside text-slate-700 space-y-1">
-          <li>Razorpay test payments with server-side verification</li>
-          <li>JWT auth, hashed passwords, rate limited auth routes</li>
-          <li>No refunds after download; refund only if file corrupted</li>
-          <li>Private download links; no public file hosting</li>
-        </ul>
-      </section>
     </div>
   );
 }
