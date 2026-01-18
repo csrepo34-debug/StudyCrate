@@ -8,7 +8,7 @@ const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mon
 
 export const metadata = {
   title: 'StudyCrate | Digital Study Shop',
-  description: 'Digital content store for students'
+  description: 'Digital content store for programmers'
 };
 
 export default function RootLayout({ children }) {

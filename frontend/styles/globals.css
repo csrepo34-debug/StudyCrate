@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 :root {
-  /* Light mode */
   --color-bg: #f9fafb; /* Page Background */
   --color-surface: #ffffff; /* Surface / Cards */
   --color-text-primary: #111827; /* Primary Text */
@@ -19,25 +18,6 @@
   --color-code-bg: #f1f5f9; /* Code BG */
   --color-code-text: #0f172a; /* Code Text */
   --color-inline-code-bg: #e5e7eb; /* Inline Code BG */
-}
-
-html.dark {
-  /* Dark mode */
-  --color-bg: #0b1220; /* Page Background */
-  --color-surface: #111827; /* Surface / Cards */
-  --color-text-primary: #f3f4f6; /* Primary Text */
-  --color-text-secondary: #d1d5db; /* Secondary Text */
-  --color-text-muted: #9ca3af; /* Muted Text */
-  --color-border: #1f2937; /* Borders / Dividers */
-  --color-accent: #60a5fa; /* Primary Accent */
-  --color-accent-hover: #3b82f6; /* Accent Hover */
-  --color-success: #22c55e;
-  --color-warning: #f59e0b;
-  --color-error: #f87171;
-
-  --color-code-bg: #020617; /* Code BG */
-  --color-code-text: #e5e7eb; /* Code Text */
-  --color-inline-code-bg: #1e293b; /* Inline Code BG */
 }
 
 body {

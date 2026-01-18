@@ -10,7 +10,7 @@ export default function HomePage() {
           className="text-3xl md:text-4xl font-bold"
           style={{ color: 'var(--color-text-primary)' }}
         >
-          StudyCrate – Digital study kits for hustling students
+          StudyCrate – Digital study kits for hustling programmers
         </h1>
         <p className="max-w-2xl mx-auto" style={{ color: 'var(--color-text-secondary)' }}>
           Secure PDFs, code packs, and notes.

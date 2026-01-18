@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import ThemeToggle from './ThemeToggle';
 
 export default function Navbar() {
   return (
@@ -8,13 +7,10 @@ export default function Navbar() {
         <Link href="/" className="font-bold text-xl" style={{ color: 'var(--color-text-primary)' }}>
           StudyCrate
         </Link>
-        <div className="flex items-center gap-4 text-sm" style={{ color: 'var(--color-text-secondary)' }}>
-          <nav className="flex items-center gap-4">
-            <Link href="/products">Products</Link>
-            <Link href="/contact">Contact</Link>
-          </nav>
-          <ThemeToggle />
-        </div>
+        <nav className="flex items-center gap-4 text-sm" style={{ color: 'var(--color-text-secondary)' }}>
+          <Link href="/products">Products</Link>
+          <Link href="/contact">Contact</Link>
+        </nav>
       </div>
     </header>
   );
