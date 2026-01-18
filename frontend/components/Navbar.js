@@ -10,6 +10,7 @@ export default function Navbar() {
         <nav className="flex items-center gap-4 text-sm" style={{ color: 'var(--color-text-secondary)' }}>
           <Link href="/products">Products</Link>
           <Link href="/contact">Contact</Link>
+          <Link href="/login">Login</Link>
         </nav>
       </div>
     </header>

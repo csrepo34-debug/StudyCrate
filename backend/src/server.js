@@ -16,6 +16,7 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const PORT = process.env.PORT || 5000;
+const JWT_SECRET = process.env.JWT_SECRET || 'secret';
 
 // Middleware
 app.use(helmet());
@@ -41,13 +42,54 @@ const razorpay = new Razorpay({
 // In-memory order store (will be cleared on restart — for demo)
 const orders = new Map();
 
+// Simple CSV logging for logins
+const dataDir = path.join(__dirname, '..', 'data');
+const loginLogPath = path.join(dataDir, 'login-log.csv');
+if (!fs.existsSync(dataDir)) {
+  fs.mkdirSync(dataDir, { recursive: true });
+}
+if (!fs.existsSync(loginLogPath)) {
+  fs.writeFileSync(loginLogPath, 'timestamp,email\n', 'utf8');
+}
+
+const appendLoginEntry = (email) => {
+  const safe = String(email || '').replace(/"/g, '""');
+  const line = `${new Date().toISOString()},"${safe}"\n`;
+  fs.appendFile(loginLogPath, line, (err) => {
+    if (err) console.error('Failed to write login log:', err);
+  });
+};
+
+const requireAuth = (req, res, next) => {
+  const authHeader = req.headers.authorization || '';
+  const [, token] = authHeader.split(' ');
+  if (!token) return res.status(401).json({ message: 'Login required' });
+  try {
+    req.user = jwt.verify(token, JWT_SECRET);
+    next();
+  } catch (err) {
+    return res.status(401).json({ message: 'Invalid or expired login' });
+  }
+};
+
 // Health check
 app.get('/health', (_req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
-// Create Razorpay order (no auth needed)
-app.post('/api/checkout', async (req, res) => {
+app.post('/api/login', (req, res) => {
+  const { email, password } = req.body || {};
+  if (!email || !password) {
+    return res.status(400).json({ message: 'Email and password are required' });
+  }
+
+  const token = jwt.sign({ email }, JWT_SECRET, { expiresIn: '7d' });
+  appendLoginEntry(email);
+  res.json({ token, email });
+});
+
+// Create Razorpay order (requires login)
+app.post('/api/checkout', requireAuth, async (req, res) => {
   try {
     const { productId, amount, productTitle } = req.body;
     if (!productId || !amount) return res.status(400).json({ message: 'Product ID and amount required' });
@@ -83,7 +125,7 @@ app.post('/api/checkout', async (req, res) => {
 });
 
 // Verify payment and generate download token
-app.post('/api/verify', async (req, res) => {
+app.post('/api/verify', requireAuth, async (req, res) => {
   try {
     const { razorpay_order_id, razorpay_payment_id, razorpay_signature, customer_email, customer_name } = req.body;
 
@@ -107,11 +149,7 @@ app.post('/api/verify', async (req, res) => {
     order.paidAt = new Date();
 
     // Generate time-limited download token (valid for 7 days)
-    const token = jwt.sign(
-      { orderId: razorpay_order_id, productId: order.productId },
-      process.env.JWT_SECRET || 'secret',
-      { expiresIn: '7d' }
-    );
+    const token = jwt.sign({ orderId: razorpay_order_id, productId: order.productId }, JWT_SECRET, { expiresIn: '7d' });
 
     // Send email with download link
     const downloadLink = `${process.env.CLIENT_URL}/download/${token}`;
@@ -175,7 +213,7 @@ app.get('/api/sample-notebook', (_req, res) => {
 // Download file with token verification
 app.get('/api/download/:token', (req, res) => {
   try {
-    const payload = jwt.verify(req.params.token, process.env.JWT_SECRET || 'secret');
+    const payload = jwt.verify(req.params.token, JWT_SECRET);
     const order = orders.get(payload.orderId);
 
     if (!order) return res.status(404).json({ message: 'Order not found' });

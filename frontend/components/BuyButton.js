@@ -1,12 +1,15 @@
 "use client";
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import api from '../lib/api';
 
 export default function BuyButton({ productId, price, title }) {
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [showForm, setShowForm] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     const script = document.createElement('script');
@@ -16,7 +19,28 @@ export default function BuyButton({ productId, price, title }) {
     return () => document.body.removeChild(script);
   }, []);
 
+  useEffect(() => {
+    const syncLogin = () => {
+      if (typeof window === 'undefined') return;
+      setIsLoggedIn(!!localStorage.getItem('token'));
+    };
+
+    syncLogin();
+    window.addEventListener('storage', syncLogin);
+    return () => window.removeEventListener('storage', syncLogin);
+  }, []);
+
+  const ensureLoggedIn = () => {
+    if (!isLoggedIn) {
+      alert('Please login before purchasing.');
+      router.push('/login');
+      return false;
+    }
+    return true;
+  };
+
   const startPayment = async () => {
+    if (!ensureLoggedIn()) return;
     if (!email || !name) {
       alert('Please enter your name and email');
       return;
@@ -65,9 +89,20 @@ export default function BuyButton({ productId, price, title }) {
 
   if (!showForm) {
     return (
-      <button className="btn-primary" onClick={() => setShowForm(true)}>
+      <button className="btn-primary" onClick={() => (ensureLoggedIn() ? setShowForm(true) : null)}>
         Buy now for ₹{price}
       </button>
+    );
+  }
+
+  if (!isLoggedIn) {
+    return (
+      <div className="border border-slate-300 rounded p-4 bg-slate-50 text-sm">
+        <p className="font-semibold mb-2">Login required</p>
+        <button className="btn-primary text-sm" onClick={() => router.push('/login')}>
+          Go to login
+        </button>
+      </div>
     );
   }
 
