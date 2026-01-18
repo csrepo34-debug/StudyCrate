@@ -4,6 +4,6 @@ node_modules
 backend/uploads/*
 backend/uploads/**
 !.gitkeep
-!backend/uploads/studycrate-sample.txt
+!backend/uploads/studycrate-sample.pdf
 .next
 .DS_Store
