@@ -234,8 +234,12 @@ app.post('/api/verify', async (req, res) => {
 
     res.json({ token, downloadLink, message: 'Payment verified! Download ready.' });
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: 'Verification failed' });
+    console.error('Error during /api/verify payment verification', {
+      message: err?.message,
+      name: err?.name,
+      stack: err?.stack
+    });
+    res.status(500).json({ message: err?.message || 'Verification failed' });
   }
 });
 

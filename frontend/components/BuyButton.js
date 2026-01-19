@@ -56,7 +56,8 @@ export default function BuyButton({ productId, price, title }) {
             setEmail('');
             setName('');
           } catch (err) {
-            alert('Payment verified but email failed. Please contact support.');
+            const msg = err?.response?.data?.message || err?.message || 'Payment verification failed. Please contact support with your payment id.';
+            alert(msg);
           }
         },
         prefill: { email, name },
