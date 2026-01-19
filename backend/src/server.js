@@ -126,10 +126,14 @@ app.post('/api/checkout', async (req, res) => {
       return res.status(404).json({ message: 'Product not available' });
     }
 
+    // Razorpay limits receipt length to 40 characters
+    const rawReceipt = `p_${productId}_${Date.now().toString(36)}`;
+    const safeReceipt = rawReceipt.slice(0, 40);
+
     const options = {
       amount: Math.round(product.price * 100),
       currency: 'INR',
-      receipt: `receipt_${productId}_${Date.now()}`,
+      receipt: safeReceipt,
       notes: { productId }
     };
 
