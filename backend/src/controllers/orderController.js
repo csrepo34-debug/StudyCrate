@@ -5,13 +5,20 @@ import Product from '../models/Product.js';
 import User from '../models/User.js';
 import { sendReceipt } from '../utils/mailer.js';
 
-const razorpay = new Razorpay({
-  key_id: process.env.RAZORPAY_KEY_ID || '',
-  key_secret: process.env.RAZORPAY_KEY_SECRET || ''
-});
+const RAZORPAY_KEY_ID = process.env.RAZORPAY_KEY_ID;
+const RAZORPAY_KEY_SECRET = process.env.RAZORPAY_KEY_SECRET;
+
+if (!RAZORPAY_KEY_ID || !RAZORPAY_KEY_SECRET) {
+  console.warn('Razorpay credentials are missing. Authenticated order routes will be disabled until configured.');
+}
+
+const razorpay = RAZORPAY_KEY_ID && RAZORPAY_KEY_SECRET ? new Razorpay({ key_id: RAZORPAY_KEY_ID, key_secret: RAZORPAY_KEY_SECRET }) : null;
 
 export const createOrder = async (req, res, next) => {
   try {
+    if (!razorpay) {
+      return res.status(500).json({ message: 'Payment gateway is not configured. Please contact support.' });
+    }
     const { productId } = req.body;
     const product = await Product.findById(productId);
     if (!product || !product.isActive) return res.status(404).json({ message: 'Product unavailable' });
@@ -33,7 +40,7 @@ export const createOrder = async (req, res, next) => {
       status: 'created'
     });
 
-    res.json({ orderId: razorpayOrder.id, amount: options.amount, currency: options.currency, key: process.env.RAZORPAY_KEY_ID });
+    res.json({ orderId: razorpayOrder.id, amount: options.amount, currency: options.currency, key: RAZORPAY_KEY_ID });
   } catch (err) {
     next(err);
   }
@@ -61,6 +68,9 @@ export const verifyWebhook = async (req, res, next) => {
   try {
     const signature = req.headers['x-razorpay-signature'];
     const secret = process.env.RAZORPAY_WEBHOOK_SECRET;
+    if (!secret) {
+      return res.status(500).json({ message: 'Webhook secret not configured.' });
+    }
     const body = JSON.stringify(req.body);
     const expected = crypto.createHmac('sha256', secret).update(body).digest('hex');
     if (signature !== expected) return res.status(400).json({ message: 'Invalid signature' });
@@ -95,7 +105,10 @@ export const verifyWebhook = async (req, res, next) => {
 export const verifyClientConfirmation = async (req, res, next) => {
   try {
     const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = req.body;
-    const secret = process.env.RAZORPAY_KEY_SECRET;
+    const secret = RAZORPAY_KEY_SECRET;
+    if (!secret) {
+      return res.status(500).json({ message: 'Payment gateway is not configured.' });
+    }
     const payload = `${razorpay_order_id}|${razorpay_payment_id}`;
     const expected = crypto.createHmac('sha256', secret).update(payload).digest('hex');
     if (expected !== razorpay_signature) return res.status(400).json({ message: 'Invalid signature' });
