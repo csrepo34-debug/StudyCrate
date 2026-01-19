@@ -40,8 +40,8 @@ app.get('/api/health', (_req, res) => {
 
 // Razorpay instance
 const razorpay = new Razorpay({
-  key_id: process.env.RAZORPAY_KEY_ID || '',
-  key_secret: process.env.RAZORPAY_KEY_SECRET || ''
+  key_id: process.env.RAZORPAY_KEY_ID || 'rzp_live_S5Ee8ddCrDyKoN',
+  key_secret: process.env.RAZORPAY_KEY_SECRET || 'ZkO87F7PvRZyqIpbIG82R0R2'
 });
 
 // Track short-lived Razorpay orders until verification completes
