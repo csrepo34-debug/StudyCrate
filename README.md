@@ -55,12 +55,12 @@ npm run dev
 
 ## How It Works
 
-### Products
+## Products
 - Hardcoded in [frontend/lib/products.js](frontend/lib/products.js)
 - Edit the `PRODUCTS` array to add/update products
 - Each product needs a file at `backend/uploads/product_{id}.pdf`
 
-### Payment Flow
+## Payment Flow
 1. Customer enters name & email
 2. Frontend → Backend: `POST /api/checkout` (creates Razorpay order)
 3. Razorpay Checkout opens
@@ -70,7 +70,7 @@ npm run dev
 7. Customer clicks link → `GET /api/download/{token}` (serves file)
 8. Token valid for 7 days
 
-### Order Tracking
+## Order Tracking
 - Orders stored **in-memory** (cleared on backend restart)
 - For permanent records, **you manually track in Excel** (email receipts + order IDs)
 - Each order has: order ID, product, customer email, payment date

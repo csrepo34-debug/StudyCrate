@@ -2,7 +2,7 @@
 
 ## Frontend Deployment (Vercel)
 
-### 1. Push to GitHub
+## 1. Push to GitHub
 ```bash
 git init
 git add .
@@ -12,7 +12,7 @@ git branch -M main
 git push -u origin main
 ```
 
-### 2. Deploy Frontend
+## 2. Deploy Frontend
 - Go to https://vercel.com and sign in with GitHub
 - Click **Add New...** → **Project**
 - Select your **StudyCrate** repository
@@ -20,7 +20,7 @@ git push -u origin main
 - Wait ~2 minutes
 - You'll get a URL like: `https://studycrate.vercel.app`
 
-### 3. Set Frontend Environment Variables
+## 3. Set Frontend Environment Variables
 In Vercel Dashboard:
 - Go to your project → **Settings** → **Environment Variables**
 - Add these (you'll update API_BASE after deploying backend):
@@ -36,13 +36,13 @@ In Vercel Dashboard:
 
 ## Backend Deployment (Render.com)
 
-### 1. Connect to Render
+## 1. Connect to Render
 - Go to https://render.com and sign up (free with GitHub)
 - Click **New +** → **Web Service**
 - Connect your GitHub account if not already
 - Select your **csrepowebsite** repository
 
-### 2. Configure Web Service
+## 2. Configure Web Service
 - **Name**: `studycrate-backend` (or any name)
 - **Region**: Choose closest to you
 - **Branch**: `main`
@@ -52,7 +52,7 @@ In Vercel Dashboard:
 - **Start Command**: `npm start`
 - **Instance Type**: `Free`
 
-### 3. Configure Environment Variables
+## 3. Configure Environment Variables
 In Render Dashboard (before deploy):
 - Click **Advanced** → **Add Environment Variable**
 - Add these one by one:
@@ -68,7 +68,7 @@ In Render Dashboard (before deploy):
   ```
 - Click **Create Web Service**
 
-### 4. Get Backend URL
+## 4. Get Backend URL
 - Wait ~3-5 minutes for first deploy
 - Once live, you'll get: `https://studycrate-backend.onrender.com`
 - Test health: `https://studycrate-backend.onrender.com/api/health` → should return `{"status":"ok"}`
@@ -77,7 +77,7 @@ In Render Dashboard (before deploy):
 
 ## Connect Frontend ↔ Backend
 
-### Update Frontend API Base
+## Update Frontend API Base
 In Vercel:
 - Go to **Settings** → **Environment Variables**
 - Set `NEXT_PUBLIC_API_BASE` to your **Render backend URL** (e.g., `https://studycrate-backend.onrender.com`)
@@ -88,18 +88,18 @@ In Vercel:
 
 ## Configure Razorpay
 
-### Get Live Keys (Optional)
+## Get Live Keys (Optional)
 - Go to https://razorpay.com/dashboard
 - Settings → API Keys
 - For testing: use **Test Keys**
 - For live: use **Live Keys** (need KYC)
 
-### Add Website Link
+## Add Website Link
 In Razorpay Dashboard:
 - Settings → Website
 - Add: `https://studycrate.vercel.app` (your Vercel URL)
 
-### Add Webhook (Optional)
+## Add Webhook (Optional)
 - Settings → Webhooks
 - Add URL: `https://studycrate-backend.onrender.com/api/webhooks/razorpay`
 - Events: `payment.authorized`
@@ -122,22 +122,22 @@ In Razorpay Dashboard:
 
 ## Troubleshooting
 
-### Frontend build fails
+## Frontend build fails
 - Check `npm run build` locally: `cd frontend && npm run build`
 - Vercel logs show error; fix and push again
 
-### Backend won't start
+## Backend won't start
 - Check logs: Render Dashboard → **Logs** tab
 - Verify all env vars are set correctly
 - Ensure JWT_SECRET and Razorpay keys are not empty
 - Check `backend/package.json` has `"start": "node src/server.js"`
 
-### Payment fails
+## Payment fails
 - Verify CLIENT_URL in backend matches frontend origin
 - Check Razorpay keys are correctly set
 - Test with Razorpay test mode first
 
-### Downloads fail
+## Downloads fail
 - Ensure product files exist: `backend/uploads/product_*.pdf`
 - Check JWT_SECRET is consistent between local & Render
 - Verify backend is running: `curl https://studycrate-backend.onrender.com/api/health`

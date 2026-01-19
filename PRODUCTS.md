@@ -2,7 +2,7 @@
 
 ## Adding a New Product
 
-### 1. Create Product Entry
+## 1. Create Product Entry
 Edit `frontend/lib/products.js` and add a new product:
 ```javascript
 {
@@ -15,12 +15,12 @@ Edit `frontend/lib/products.js` and add a new product:
 }
 ```
 
-### 2. Upload Product File
+## 2. Upload Product File
 - Place your file at: `backend/uploads/product_6.pdf`
 - Naming convention: `product_{_id}.pdf`
 - Format: PDF, ZIP, or any downloadable file
 
-### 3. Test
+## 3. Test
 - Restart frontend to see new product
 - Click product → Buy Now → Test checkout
 

@@ -2,13 +2,20 @@ import mongoose from 'mongoose';
 
 const orderSchema = new mongoose.Schema(
   {
-    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-    productId: { type: mongoose.Schema.Types.ObjectId, ref: 'Product', required: true },
-    paymentId: { type: String, required: true },
+    razorpayOrderId: { type: String, required: true, unique: true },
+    paymentId: { type: String },
+    productId: { type: String, required: true },
+    productTitle: { type: String, required: true },
     amount: { type: Number, required: true },
-    status: { type: String, enum: ['created', 'paid', 'failed', 'refunded'], default: 'created' }
+    customerEmail: { type: String, required: true, lowercase: true, trim: true },
+    customerName: { type: String, required: true },
+    status: { type: String, enum: ['created', 'paid', 'failed'], default: 'created' },
+    downloadToken: { type: String },
+    tokenExpiresAt: { type: Date }
   },
-  { timestamps: { createdAt: true, updatedAt: false } }
+  { timestamps: true }
 );
+
+orderSchema.index({ customerEmail: 1, productId: 1, status: 1 });
 
 export default mongoose.model('Order', orderSchema);
