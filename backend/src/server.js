@@ -12,6 +12,7 @@ import Razorpay from 'razorpay';
 import Order from './models/Order.js';
 import { getProductById } from './config/products.js';
 import { sendReceipt, sendContactMessage } from './utils/mailer.js';
+import { resolveFilePath, fileExists } from './utils/storage.js';
 
 dotenv.config();
 
@@ -74,8 +75,10 @@ const buildDownloadLink = (token) => `${PUBLIC_API_BASE}/api/download/${token}`;
 
 const resolveProductFile = (productId) => {
   const product = getProductById(productId);
-  if (!product) return path.join(__dirname, '..', 'uploads', `product_${productId}.pdf`);
-  return path.join(__dirname, '..', 'uploads', product.fileName);
+  if (product?.fileName) {
+    return resolveFilePath(product.fileName);
+  }
+  return resolveFilePath(`product_${productId}.pdf`);
 };
 
 const getPendingOrderDetails = async (razorpayOrderId) => {
@@ -263,8 +266,9 @@ app.post('/api/contact', async (req, res) => {
 
 // Provide a free sample download
 app.get('/api/sample-download', (_req, res) => {
-  const samplePath = path.join(__dirname, '..', 'uploads', 'studycrate-sample.pdf');
-  if (!fs.existsSync(samplePath)) {
+  const samplePath = resolveFilePath('studycrate-sample.pdf');
+  if (!fileExists(samplePath)) {
+    console.error('Sample download file missing at path', samplePath);
     return res.status(404).json({ message: 'Sample not available' });
   }
 
@@ -272,9 +276,10 @@ app.get('/api/sample-download', (_req, res) => {
 });
 
 app.get('/api/sample-notebook', (_req, res) => {
-  const notebookPath = path.join(__dirname, '..', 'uploads', 'studycrate-sample-notebook.ipynb');
+  const notebookPath = resolveFilePath('studycrate-sample-notebook.ipynb');
 
-  if (!fs.existsSync(notebookPath)) {
+  if (!fileExists(notebookPath)) {
+    console.error('Sample notebook file missing at path', notebookPath);
     return res.status(404).json({ message: 'Sample notebook not available' });
   }
 
@@ -303,7 +308,11 @@ app.get('/api/download/:token', async (req, res) => {
     const product = getProductById(order.productId);
     const filePath = resolveProductFile(order.productId);
 
-    if (!fs.existsSync(filePath)) {
+    if (!fileExists(filePath)) {
+      console.error('Download file not found for product', {
+        productId: order.productId,
+        expectedPath: filePath
+      });
       return res.status(404).json({ message: 'File not found' });
     }
 
