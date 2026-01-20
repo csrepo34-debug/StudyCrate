@@ -223,6 +223,30 @@ app.post('/api/verify', async (req, res) => {
     );
 
     const downloadLink = buildDownloadLink(token);
+
+    // NEW: send data to Zapier so it can email the Drive link
+    const product = getProductById(orderDetails.productId);
+    const driveUrl = product?.driveUrl;
+    try {
+      if (process.env.ZAPIER_HOOK_URL && driveUrl) {
+        await fetch(process.env.ZAPIER_HOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: customer_email,
+            name: customer_name,
+            productId: orderDetails.productId,
+            productTitle: orderDetails.productTitle,
+            amount: orderDetails.amount,
+            driveUrl
+          })
+        });
+      }
+    } catch (zapErr) {
+      console.error('Zapier hook failed (continuing):', zapErr?.message || zapErr);
+    }
+
+    // (optional) keep your existing backend email as well
     await sendReceipt({
       to: customer_email,
       subject: `Your purchase: ${orderDetails.productTitle}`,

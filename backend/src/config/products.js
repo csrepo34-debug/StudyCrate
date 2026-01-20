@@ -51,6 +51,7 @@ export const PRODUCT_CATALOG = [
     category: 'Programming Languages',
     price: 10,
     fileName: 'Beginner.zip',
+    driveUrl: 'https://drive.google.com/file/d/11dDJt55Av0pg6depDXiyGipXxV7WlMhk/view?usp=sharing',
     isActive: true
   }
 ];
