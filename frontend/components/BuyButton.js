@@ -86,7 +86,7 @@ export default function BuyButton({ productId, price, title }) {
     <div className="space-y-4">
       {verifying && !downloadInfo && (
         <div className="border border-sky-200 bg-sky-50 rounded p-4 space-y-1">
-          <p className="text-sm font-medium text-sky-800">Verifying payment this may take a few seconds.</p>
+          <p className="text-sm font-medium text-sky-800">Verifying payment... this may take a few seconds.</p>
           <p className="text-xs text-sky-800">Check your email for the download link.</p>
         </div>
       )}
