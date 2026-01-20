@@ -8,6 +8,8 @@ export default function BuyButton({ productId, price, title }) {
   const [name, setName] = useState('');
   const [showForm, setShowForm] = useState(false);
   const [downloadInfo, setDownloadInfo] = useState(null);
+  const [verifying, setVerifying] = useState(false);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const script = document.createElement('script');
@@ -25,6 +27,7 @@ export default function BuyButton({ productId, price, title }) {
 
     try {
       setLoading(true);
+      setError('');
       const { data } = await api.post('/api/checkout', { productId, amount: price, productTitle: title });
 
       const options = {
@@ -36,6 +39,8 @@ export default function BuyButton({ productId, price, title }) {
         order_id: data.orderId,
         handler: async (response) => {
           try {
+            setVerifying(true);
+            setError('');
             const verifyRes = await api.post('/api/verify', {
               razorpay_order_id: response.razorpay_order_id,
               razorpay_payment_id: response.razorpay_payment_id,
@@ -56,9 +61,13 @@ export default function BuyButton({ productId, price, title }) {
             setEmail('');
             setName('');
           } catch (err) {
-            const msg = err?.response?.data?.message || err?.message || 'Payment verification failed. Please contact support with your payment id.';
-            alert(msg);
+            const backendMsg = err?.response?.data?.message || err?.message;
+            const fallback = 'Payment succeeded but we couldn\'t verify it. Please contact support with your payment id.';
+            const message = backendMsg || fallback;
+            const paymentId = response?.razorpay_payment_id;
+            setError(paymentId ? `${message} (Payment ID: ${paymentId})` : message);
           }
+          setVerifying(false);
         },
         prefill: { email, name },
         notes: { productId }
@@ -75,6 +84,19 @@ export default function BuyButton({ productId, price, title }) {
 
   return (
     <div className="space-y-4">
+      {verifying && !downloadInfo && (
+        <div className="border border-sky-200 bg-sky-50 rounded p-4 space-y-1">
+          <p className="text-sm font-medium text-sky-800">Verifying payment this may take a few seconds.</p>
+          <p className="text-xs text-sky-800">Check your email for the download link.</p>
+        </div>
+      )}
+
+      {error && (
+        <div className="border border-red-200 bg-red-50 rounded p-4 text-sm text-red-800">
+          {error}
+        </div>
+      )}
+
       {downloadInfo && (
         <div className="border border-emerald-200 bg-emerald-50 rounded p-4 space-y-2">
           <p className="text-sm font-semibold text-emerald-800">
@@ -88,7 +110,7 @@ export default function BuyButton({ productId, price, title }) {
           >
             Download file
           </a>
-          <p className="text-xs text-emerald-700">Link stays active for 7 days.</p>
+          <p className="text-xs text-emerald-700">Link stays active for 7 days. Check your email for the link too.</p>
         </div>
       )}
 
