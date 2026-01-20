@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 const apiBase = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:5000';
 const sampleDownloadUrl = `${apiBase}/api/sample-download`;
@@ -57,6 +58,15 @@ export default function SampleDownloadPage() {
             {error}
           </p>
         )}
+        <div className="mt-4">
+          <Link
+            href="/"
+            className="inline-flex items-center justify-center px-4 py-2 text-sm rounded border"
+            style={{ borderColor: 'var(--color-border)', color: 'var(--color-text-secondary)' }}
+          >
+            Go to Home Page
+          </Link>
+        </div>
       </div>
     </div>
   );
