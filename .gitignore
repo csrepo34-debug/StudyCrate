@@ -7,5 +7,6 @@ backend/uploads/**
 !backend/uploads/studycrate-sample.pdf
 !backend/uploads/studycrate-sample-notebook.ipynb
 !backend/uploads/Beginner.zip
+!backend/uploads/Intermediate.zip
 .next
 .DS_Store
