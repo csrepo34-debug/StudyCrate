@@ -6,7 +6,9 @@ backend/uploads/**
 !.gitkeep
 !backend/uploads/studycrate-sample.pdf
 !backend/uploads/studycrate-sample-notebook.ipynb
-!backend/uploads/Beginner.zip
-!backend/uploads/Intermediate.zip
+!backend/uploads/Beginner_Python.zip
+!backend/uploads/Intermediate_Python.zip
+!backend/uploads/Beginner_C.zip
+!backend/uploads/Intermediate_C.zip
 .next
 .DS_Store
