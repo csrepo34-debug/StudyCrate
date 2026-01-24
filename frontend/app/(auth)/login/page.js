@@ -4,8 +4,6 @@ import { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { login } from '../../../lib/auth';
 
-export const metadata = { title: 'Login' };
-
 export default function LoginPage() {
   const router = useRouter();
   const searchParams = useSearchParams();

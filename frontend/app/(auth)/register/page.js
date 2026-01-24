@@ -4,8 +4,6 @@ import { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { register } from '../../../lib/auth';
 
-export const metadata = { title: 'Register' };
-
 export default function RegisterPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
