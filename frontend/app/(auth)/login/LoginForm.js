@@ -18,7 +18,7 @@ export default function LoginForm() {
       setLoading(true);
       setError('');
       await login(email, password);
-      const next = searchParams.get('next') || '/products';
+      const next = searchParams.get('next') || '/';
       router.push(next);
     } catch (err) {
       const msg = err?.response?.data?.message || 'Invalid email or password';

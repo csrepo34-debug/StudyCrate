@@ -40,7 +40,8 @@ export default function Navbar() {
           <Link href="/contact">Contact</Link>
           {user ? (
             <>
-              <span className="text-xs sm:text-sm">Hi, {user.name || user.email}</span>
+              <Link href="/purchases">My Purchases</Link>
+              <Link href="/account">My Account</Link>
               <button onClick={handleLogout} className="underline text-xs sm:text-sm">
                 Logout
               </button>

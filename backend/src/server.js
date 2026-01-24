@@ -294,6 +294,40 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
+// Get purchases for the authenticated user
+app.get('/api/my-orders', authenticate, async (req, res) => {
+  try {
+    const userId = req.user?._id;
+    const email = req.user?.email;
+
+    const orders = await Order.find({
+      $or: [
+        userId ? { user: userId, status: 'paid' } : null,
+        email ? { customerEmail: email, status: 'paid' } : null
+      ].filter(Boolean)
+    })
+      .sort({ createdAt: -1 })
+      .lean();
+
+    const normalized = orders.map((order) => {
+      const product = getProductById(order.productId);
+      return {
+        id: order._id,
+        productId: order.productId,
+        productTitle: order.productTitle || product?.title,
+        amount: order.amount,
+        createdAt: order.createdAt,
+        status: order.status
+      };
+    });
+
+    res.json({ orders: normalized });
+  } catch (err) {
+    console.error('Error fetching user orders', err);
+    res.status(500).json({ message: 'Unable to load your purchases right now.' });
+  }
+});
+
 // Provide a free sample download
 app.get('/api/sample-download', (_req, res) => {
   const samplePath = resolveFilePath('studycrate-sample.pdf');

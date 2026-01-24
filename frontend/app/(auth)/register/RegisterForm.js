@@ -19,7 +19,7 @@ export default function RegisterForm() {
       setLoading(true);
       setError('');
       await register(name, email, password);
-      const next = searchParams.get('next') || '/products';
+      const next = searchParams.get('next') || '/';
       router.push(next);
     } catch (err) {
       const msg = err?.response?.data?.message || 'Unable to register with those details';
