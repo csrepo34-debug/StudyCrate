@@ -1,8 +1,11 @@
 "use client";
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import api from '../lib/api';
+import { getToken } from '../lib/auth';
 
 export default function BuyButton({ productId, price, title }) {
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
@@ -18,6 +21,15 @@ export default function BuyButton({ productId, price, title }) {
     document.body.appendChild(script);
     return () => document.body.removeChild(script);
   }, []);
+
+  const handleBuyClick = () => {
+    if (!getToken()) {
+      const next = `/products/${productId}`;
+      router.push(`/login?next=${encodeURIComponent(next)}`);
+      return;
+    }
+    setShowForm(true);
+  };
 
   const startPayment = async () => {
     if (!email || !name) {
@@ -115,7 +127,7 @@ export default function BuyButton({ productId, price, title }) {
       )}
 
       {!showForm ? (
-        <button className="btn-primary" onClick={() => setShowForm(true)}>
+        <button className="btn-primary" onClick={handleBuyClick}>
           Buy now for ₹{price}
         </button>
       ) : (

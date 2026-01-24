@@ -11,7 +11,8 @@ const orderSchema = new mongoose.Schema(
     customerName: { type: String, required: true },
     status: { type: String, enum: ['created', 'paid', 'failed'], default: 'created' },
     downloadToken: { type: String },
-    tokenExpiresAt: { type: Date }
+    tokenExpiresAt: { type: Date },
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
   },
   { timestamps: true }
 );

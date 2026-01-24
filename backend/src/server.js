@@ -10,6 +10,8 @@ import { fileURLToPath } from 'url';
 import mongoose from 'mongoose';
 import Razorpay from 'razorpay';
 import Order from './models/Order.js';
+import authRoutes from './routes/authRoutes.js';
+import { authenticate } from './middleware/auth.js';
 import { getProductById } from './config/products.js';
 import { sendReceipt, sendContactMessage } from './utils/mailer.js';
 import { resolveFilePath, fileExists } from './utils/storage.js';
@@ -55,6 +57,9 @@ app.use(
 );
 app.use(express.json({ limit: '2mb' }));
 app.use(express.urlencoded({ extended: true }));
+
+// Auth routes
+app.use('/api/auth', authRoutes);
 
 // Simple health checks
 app.get('/', (_req, res) => {
@@ -116,8 +121,8 @@ app.get('/health', (_req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
-// Create Razorpay order (no auth needed)
-app.post('/api/checkout', async (req, res) => {
+// Create Razorpay order (auth required)
+app.post('/api/checkout', authenticate, async (req, res) => {
   try {
     if (!razorpay) {
       console.error('Checkout attempted without Razorpay credentials');
@@ -170,8 +175,8 @@ app.post('/api/checkout', async (req, res) => {
   }
 });
 
-// Verify payment and generate download token
-app.post('/api/verify', async (req, res) => {
+// Verify payment and generate download token (auth required)
+app.post('/api/verify', authenticate, async (req, res) => {
   try {
     const { razorpay_order_id, razorpay_payment_id, razorpay_signature, customer_email, customer_name } = req.body;
 
@@ -217,7 +222,8 @@ app.post('/api/verify', async (req, res) => {
         customerName: customer_name,
         status: 'paid',
         downloadToken: token,
-        tokenExpiresAt: expiresAt
+        tokenExpiresAt: expiresAt,
+        user: req.user?._id || undefined
       },
       { upsert: true, new: true, setDefaultsOnInsert: true }
     );
