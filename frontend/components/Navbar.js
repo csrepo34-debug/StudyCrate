@@ -2,11 +2,12 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { me, logout, getToken } from '../lib/auth';
 
 export default function Navbar() {
   const router = useRouter();
+  const pathname = usePathname();
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -16,12 +17,12 @@ export default function Navbar() {
         const current = await me();
         if (current) setUser(current);
       } catch {
-        logout();
+        // If the token is invalid, keep showing logged-out state
         setUser(null);
       }
     };
     loadUser();
-  }, []);
+  }, [pathname]);
 
   const handleLogout = () => {
     logout();

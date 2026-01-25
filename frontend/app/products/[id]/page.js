@@ -38,20 +38,20 @@ export default function ProductDetail({ params }) {
           DOWNLOAD
         </h2>
         <p className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>
-          Once your payment is completed, your download link will appear on the thank-you page and a copy will be sent to your email address.
+          Your download link will be available immediately after payment on the thank-you page, and a copy will also be sent to your email.
         </p>
         <ul className="list-disc pl-5 text-sm" style={{ color: 'var(--color-text-secondary)' }}>
           <li>
-            Sometimes download emails may be delayed, sent to spam, or blocked by your email provider.
+            Didn’t receive the email? Please check your spam or promotions folder first—sometimes emails take a little longer to arrive.
           </li>
           <li>
-            If you do not see the email, please check your spam or promotions folder first. If it still has not arrived, contact us and we will resend the link.
+            Still no luck? Just contact us and we’ll resend your download link as soon as possible.
           </li>
           <li>
-            Thank you for purchasing from us and supporting our work.
+            Thanks for choosing us and supporting what we do.
           </li>
           <li>
-            Have a great day and enjoy your new resources!
+            Happy learning and enjoy your purchase!
           </li>
         </ul>
       </section>
