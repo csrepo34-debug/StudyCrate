@@ -10,5 +10,7 @@ backend/uploads/**
 !backend/uploads/Intermediate_Python.zip
 !backend/uploads/Beginner_C.zip
 !backend/uploads/Intermediate_C.zip
+!backend/uploads/Beginner_EDA.zip
+!backend/uploads/Intermediate_EDA.zip
 .next
 .DS_Store
