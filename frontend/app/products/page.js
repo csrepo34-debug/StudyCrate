@@ -3,12 +3,17 @@ import { PRODUCTS } from '../../lib/products';
 export default function ProductsPage() {
   return (
     <div className="space-y-4">
-      <h1
-        className="text-2xl font-semibold"
-        style={{ color: 'var(--color-text-primary)' }}
-      >
-        Products
-      </h1>
+      <header className="space-y-2">
+        <h1
+          className="text-2xl font-semibold"
+          style={{ color: 'var(--color-text-primary)' }}
+        >
+          StudyCrate products
+        </h1>
+        <p className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>
+          Programming bundles help you master Python and C step by step, while data analysis kits walk you through real EDA workflows on practical datasets.
+        </p>
+      </header>
       <div className="grid md:grid-cols-3 gap-4">
         {PRODUCTS.map((p) => (
           <article key={p._id} className="card">

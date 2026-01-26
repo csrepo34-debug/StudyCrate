@@ -7,8 +7,9 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono' });
 
 export const metadata = {
-  title: 'StudyCrate | Digital Study Shop',
-  description: 'Digital content store for programmers'
+  title: 'StudyCrate | Programming & Data Analysis Kits',
+  description:
+    'Downloadable study kits for Python, C programming, and exploratory data analysis (EDA) with real-world examples.'
 };
 
 export default function RootLayout({ children }) {

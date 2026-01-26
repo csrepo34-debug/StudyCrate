@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 import { me, logout, getToken } from '../lib/auth';
+import Image from 'next/image';
 
 export default function Navbar() {
   const router = useRouter();
@@ -31,10 +32,29 @@ export default function Navbar() {
   };
 
   return (
-    <header className="border-b border-[var(--color-border)] bg-[var(--color-surface)]">
+    <header className="border-b border-[var(--color-border)] bg-[var(--color-surface)]/80 backdrop-blur">
       <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
-        <Link href="/" className="font-bold text-xl" style={{ color: 'var(--color-text-primary)' }}>
-          StudyCrate
+        <Link href="/" className="flex items-center gap-2">
+          <span className="inline-flex items-center justify-center rounded-full bg-white/80 shadow-sm p-1.5">
+            <Image
+              src="/studycrate-logo.png"
+              alt="StudyCrate logo"
+              width={28}
+              height={28}
+              priority
+            />
+          </span>
+          <span className="flex flex-col leading-tight">
+            <span
+              className="font-semibold text-lg tracking-tight"
+              style={{ color: 'var(--color-text-primary)' }}
+            >
+              StudyCrate
+            </span>
+            <span className="text-[10px] uppercase tracking-[0.18em]" style={{ color: 'var(--color-text-muted)' }}>
+              alpha
+            </span>
+          </span>
         </Link>
         <nav className="flex items-center gap-4 text-sm" style={{ color: 'var(--color-text-secondary)' }}>
           <Link href="/products">Products</Link>
