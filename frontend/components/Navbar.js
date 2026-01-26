@@ -31,6 +31,11 @@ export default function Navbar() {
     router.push('/');
   };
 
+  const mainLinks = [
+    { href: '/products', label: 'Products' },
+    { href: '/contact', label: 'Contact' }
+  ];
+
   return (
     <header className="border-b border-[var(--color-border)] bg-[var(--color-surface)]/80 backdrop-blur">
       <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
@@ -57,23 +62,45 @@ export default function Navbar() {
             </span>
           </span>
         </Link>
-        <nav className="flex items-center gap-4 text-sm" style={{ color: 'var(--color-text-secondary)' }}>
-          <Link href="/products">Products</Link>
-          <Link href="/contact">Contact</Link>
-          {user ? (
-            <>
-              <Link href="/purchases">My Purchases</Link>
-              <Link href="/account">My Account</Link>
-              <button onClick={handleLogout} className="underline text-xs sm:text-sm">
-                Logout
-              </button>
-            </>
-          ) : (
-            <>
-              <Link href="/login">Login</Link>
-              <Link href="/register">Register</Link>
-            </>
-          )}
+        <nav
+          className="flex items-center gap-4 text-sm"
+          style={{ color: 'var(--color-text-secondary)' }}
+          aria-label="Primary"
+        >
+          <div className="hidden sm:flex items-center gap-1 rounded-full bg-white/60 px-1 py-0.5 shadow-sm">
+            {mainLinks.map((link) => {
+              const isActive = pathname.startsWith(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`px-3 py-1 rounded-full transition-colors ${
+                    isActive
+                      ? 'bg-[var(--color-accent)] text-white'
+                      : 'hover:bg-[var(--color-accent)]/10'
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+          </div>
+          <div className="flex items-center gap-3">
+            {user ? (
+              <>
+                <Link href="/purchases">My Purchases</Link>
+                <Link href="/account">My Account</Link>
+                <button onClick={handleLogout} className="underline text-xs sm:text-sm">
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <Link href="/login">Login</Link>
+                <Link href="/register">Register</Link>
+              </>
+            )}
+          </div>
         </nav>
       </div>
     </header>

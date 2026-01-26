@@ -10,24 +10,32 @@ const links = [
 
 export default function Footer() {
   return (
-    <footer className="border-t mt-10" style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-surface)' }}>
+    <footer
+      className="border-t mt-10"
+      style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-surface)' }}
+    >
       <div
-        className="max-w-5xl mx-auto px-4 py-6 flex flex-col gap-3 text-sm"
+        className="max-w-5xl mx-auto px-4 py-6 flex flex-col gap-4 text-sm md:flex-row md:items-center md:justify-between"
         style={{ color: 'var(--color-text-secondary)' }}
       >
-        <div className="flex flex-wrap gap-3">
+        <nav
+          className="flex flex-wrap gap-x-5 gap-y-2"
+          aria-label="Footer navigation"
+        >
           {links.map((l) => (
             <Link
               key={l.href}
               href={l.href}
-              className="hover:underline"
+              className="hover:underline whitespace-nowrap"
               style={{ color: 'var(--color-text-secondary)' }}
             >
               {l.label}
             </Link>
           ))}
-        </div>
-        <p>© {new Date().getFullYear()} StudyCrate. Personal-use license only. No redistribution.</p>
+        </nav>
+        <p className="text-xs md:text-[11px]" style={{ color: 'var(--color-text-muted)' }}>
+          © {new Date().getFullYear()} StudyCrate. Personal-use license only. No redistribution.
+        </p>
       </div>
     </footer>
   );
