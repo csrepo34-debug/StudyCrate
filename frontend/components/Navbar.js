@@ -89,7 +89,7 @@ export default function Navbar() {
               <div
                 className="absolute z-0 transition-all duration-300"
                 style={{
-                  top: 0,
+                  top: 2,
                   left: indicatorStyle.left,
                   width: indicatorStyle.width,
                   height: 36,
