@@ -127,12 +127,11 @@ export default function ProductDetail({ params }) {
           {product.description}
         </p>
         <p className="text-2xl font-semibold text-brand-accent">₹{product.price}</p>
-        <BuyButton
-          productId={product._id}
-          price={product.price}
-          title={product.title}
-        />
-      </div>
+		<BuyButton
+		  productId={product._id}
+		  price={product.price}
+		  title={product.title}
+		/>
 
       {details && (
         <div className="grid md:grid-cols-2 gap-6">
