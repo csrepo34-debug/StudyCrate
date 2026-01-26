@@ -3,9 +3,9 @@ import { useRouter } from 'next/navigation';
 export const metadata = { title: 'About Us' };
 
 export default function AboutPage() {
+  const router = useRouter();
   return (
     <div className="space-y-8">
-      const router = useRouter();
       {/* Back Button */}
       <button
         onClick={() => router.back()}
@@ -16,7 +16,6 @@ export default function AboutPage() {
         <span aria-hidden="true" style={{ fontSize: '1.1em', display: 'flex', alignItems: 'center' }}>&larr;</span>
         Back
       </button>
-      {/* ...existing code... */}
       <h1 className="text-2xl font-semibold">About StudyCrate</h1>
       <p>StudyCrate is an independent educational platform focused on building strong foundations in Computer Science and Machine Learning through structured explanations, practical code, and carefully curated study resources.</p>
       <p>The platform is designed for students and early-stage engineers who want to understand how things work internally, not just how to use tools. StudyCrate emphasizes clarity, correctness, and depth across core CS areas such as data structures and algorithms, programming languages, web concepts, machine learning, deep learning, and applied AI.</p>

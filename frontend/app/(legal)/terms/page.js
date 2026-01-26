@@ -1,42 +1,26 @@
+"use client";
+import { useRouter } from 'next/navigation';
 export const metadata = { title: 'Terms and Conditions' };
 
 export default function TermsPage() {
+  const router = useRouter();
   return (
     <div className="space-y-4">
+      {/* Back Button */}
+      <button
+        onClick={() => router.back()}
+        className="flex items-center gap-2 text-sm px-3 py-1 rounded-md border border-gray-300 hover:bg-gray-100 transition mb-2"
+        aria-label="Go back"
+        style={{ color: 'var(--color-text-primary)', borderColor: 'var(--color-border)' }}
+      >
+        <span aria-hidden="true" style={{ fontSize: '1.1em', display: 'flex', alignItems: 'center' }}>&larr;</span>
+        Back
+      </button>
       <div className="space-y-1 text-sm text-gray-600">
         <p><strong>Nature:</strong> Educational &amp; Technical Content Platform</p>
       </div>
-
       <h1 className="text-2xl font-semibold">1. Terms and Conditions (Terms of Use)</h1>
-
-      <section className="space-y-2">
-        <h2 className="text-xl font-semibold">1.1 Acceptance of Terms</h2>
-        <p>
-          By accessing or using <strong>StudyCrate</strong> (the "Website"), you agree to be bound by these Terms and
-          Conditions. If you do not agree, you must discontinue use of the Website immediately.
-         "use client";
-         import { useRouter } from 'next/navigation';
-        </p>
-      </section>
-
-      <section className="space-y-2">
-          const router = useRouter();
-        <h2 className="text-xl font-semibold">1.2 Eligibility</h2>
-        <p>
-              {/* Back Button */}
-              <button
-                onClick={() => router.back()}
-                className="flex items-center gap-2 text-sm px-3 py-1 rounded-md border border-gray-300 hover:bg-gray-100 transition mb-2"
-                aria-label="Go back"
-                style={{ color: 'var(--color-text-primary)', borderColor: 'var(--color-border)' }}
-              >
-                <span aria-hidden="true" style={{ fontSize: '1.1em', display: 'flex', alignItems: 'center' }}>&larr;</span>
-                Back
-              </button>
-          The Website is intended for users who are legally capable of entering into binding agreements under Indian
-          law. If you are under 18, you must use the Website under parental or guardian supervision.
-        </p>
-      </section>
+      {/* ...existing code... */}
 
       <section className="space-y-2">
         <h2 className="text-xl font-semibold">1.3 Nature of Services</h2>
