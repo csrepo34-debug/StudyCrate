@@ -78,7 +78,31 @@ npm run dev
 ## File Upload
 1. Add product file to `backend/uploads/product_{id}.pdf` (e.g., `product_1.pdf`)
 2. Add product to [frontend/lib/products.js](frontend/lib/products.js)
+
 3. Restart frontend to see new product
+
+## Data Analysis Page Structure (2026 Update)
+
+The Data Analysis kits page now features a modern, visually rich layout:
+
+- **Hero Section**: Large headline, subheadline, and orange CTA button (scrolls to products), with a hero image. See `components/DataAnalysisHero.js`.
+- **Intro Section**: Left-aligned text ("Assess. Monitor. Measure : Read. Practice. Test.") with a photo. See `components/DataAnalysisIntro.js`.
+- **Alternating Section**: Three rows alternating video and text ("Read", "Practice", "Test"). See `components/AlternatingSection.js`.
+- **Product Cards**: EDA kits displayed at the bottom, as before.
+
+### Adding Images & Videos
+- Place images in `frontend/public/images/` (e.g., `data-analysis-hero.jpg`, `data-analysis-intro.jpg`).
+- Place videos in `frontend/public/videos/` (e.g., `eda-intro.mp4`, `eda-practice.mp4`, `eda-test.mp4`).
+- Use descriptive alt text for accessibility.
+
+### Customization
+- Update text, images, or videos by editing the respective component in `frontend/components/`.
+- To add more sections, follow the modular component pattern.
+
+### Responsiveness
+- All sections are responsive and styled with Tailwind CSS.
+
+---
 
 ## Email Receipts (Optional)
 If you want auto email receipts with download links:
