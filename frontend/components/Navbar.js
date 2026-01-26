@@ -35,12 +35,13 @@ export default function Navbar() {
     <header className="border-b border-[var(--color-border)] bg-[var(--color-surface)]/80 backdrop-blur">
       <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <span className="inline-flex items-center justify-center rounded-full bg-white/80 shadow-sm p-1.5">
+          <span className="relative inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/80 shadow-sm overflow-hidden">
             <Image
               src="/studycrate-logo.png"
               alt="StudyCrate logo"
-              width={28}
-              height={28}
+              fill
+              className="object-contain"
+              sizes="36px"
               priority
             />
           </span>
