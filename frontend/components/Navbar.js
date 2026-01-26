@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 import { me, logout, getToken } from '../lib/auth';
@@ -10,6 +10,8 @@ export default function Navbar() {
   const router = useRouter();
   const pathname = usePathname();
   const [user, setUser] = useState(null);
+  const linkRefs = useRef([]);
+  const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
 
   useEffect(() => {
     const loadUser = async () => {
@@ -18,11 +20,22 @@ export default function Navbar() {
         const current = await me();
         if (current) setUser(current);
       } catch {
-        // If the token is invalid, keep showing logged-out state
         setUser(null);
       }
     };
     loadUser();
+  }, [pathname]);
+
+  // Dynamic indicator position
+  useEffect(() => {
+    const activeIdx = mainLinks.findIndex(l2 => pathname.startsWith(l2.href));
+    if (activeIdx !== -1 && linkRefs.current[activeIdx]) {
+      const el = linkRefs.current[activeIdx];
+      setIndicatorStyle({
+        left: el.offsetLeft,
+        width: el.offsetWidth
+      });
+    }
   }, [pathname]);
 
   const handleLogout = () => {
@@ -73,26 +86,18 @@ export default function Navbar() {
           >
             {/* Animated active indicator, perfectly aligned */}
             {mainLinks.some(l => pathname.startsWith(l.href)) && (
-              (() => {
-                const activeIdx = mainLinks.findIndex(l2 => pathname.startsWith(l2.href));
-                // Each link is px-6 (24px left+right), gap-1 (4px), so left = idx * (linkWidth + gap)
-                const linkWidth = 88; // px-6 + text (fixed for 8-9 chars) + px-6
-                const gap = 4;
-                return (
-                  <div
-                    className="absolute z-0 transition-all duration-300"
-                    style={{
-                      top: 4,
-                      left: activeIdx * (linkWidth + gap),
-                      height: 36,
-                      borderRadius: 9999,
-                      background: 'var(--color-accent)',
-                      width: linkWidth,
-                    }}
-                    aria-hidden="true"
-                  />
-                );
-              })()
+              <div
+                className="absolute z-0 transition-all duration-300"
+                style={{
+                  top: 4,
+                  left: indicatorStyle.left,
+                  width: indicatorStyle.width,
+                  height: 36,
+                  borderRadius: 9999,
+                  background: 'var(--color-accent)',
+                }}
+                aria-hidden="true"
+              />
             )}
             {mainLinks.map((link, i) => {
               const isActive = pathname.startsWith(link.href);
@@ -100,6 +105,7 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
+                  ref={el => (linkRefs.current[i] = el)}
                   className={`relative z-10 px-6 py-2 rounded-full font-medium transition-colors ${
                     isActive
                       ? 'text-white'
