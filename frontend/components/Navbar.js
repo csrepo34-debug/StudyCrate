@@ -67,18 +67,27 @@ export default function Navbar() {
           style={{ color: 'var(--color-text-secondary)' }}
           aria-label="Primary"
         >
-          <div className="hidden sm:flex items-center gap-1 rounded-full bg-white/60 px-1 py-0.5 shadow-sm">
-            {mainLinks.map((link) => {
+          <div className="hidden sm:flex items-center gap-1 rounded-full bg-white/60 px-1 py-0.5 shadow-sm relative min-h-[38px]">
+            {/* Animated active indicator */}
+            <div
+              className="absolute top-1 left-0 h-7 w-20 rounded-full bg-[var(--color-accent)] z-0 transition-all duration-300"
+              style={{
+                transform: `translateX(${mainLinks.findIndex(l => pathname.startsWith(l.href)) * 88}px)`
+              }}
+              aria-hidden="true"
+            />
+            {mainLinks.map((link, i) => {
               const isActive = pathname.startsWith(link.href);
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-3 py-1 rounded-full transition-colors ${
+                  className={`relative z-10 px-3 py-1 rounded-full transition-colors ${
                     isActive
-                      ? 'bg-[var(--color-accent)] text-white'
+                      ? 'text-white'
                       : 'hover:bg-[var(--color-accent)]/10'
                   }`}
+                  tabIndex={0}
                 >
                   {link.label}
                 </Link>
