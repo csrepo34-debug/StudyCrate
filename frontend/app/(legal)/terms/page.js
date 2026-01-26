@@ -14,12 +14,25 @@ export default function TermsPage() {
         <p>
           By accessing or using <strong>StudyCrate</strong> (the "Website"), you agree to be bound by these Terms and
           Conditions. If you do not agree, you must discontinue use of the Website immediately.
+         "use client";
+         import { useRouter } from 'next/navigation';
         </p>
       </section>
 
       <section className="space-y-2">
+          const router = useRouter();
         <h2 className="text-xl font-semibold">1.2 Eligibility</h2>
         <p>
+              {/* Back Button */}
+              <button
+                onClick={() => router.back()}
+                className="flex items-center gap-2 text-sm px-3 py-1 rounded-md border border-gray-300 hover:bg-gray-100 transition mb-2"
+                aria-label="Go back"
+                style={{ color: 'var(--color-text-primary)', borderColor: 'var(--color-border)' }}
+              >
+                <span aria-hidden="true" style={{ fontSize: '1.1em', display: 'flex', alignItems: 'center' }}>&larr;</span>
+                Back
+              </button>
           The Website is intended for users who are legally capable of entering into binding agreements under Indian
           law. If you are under 18, you must use the Website under parental or guardian supervision.
         </p>
