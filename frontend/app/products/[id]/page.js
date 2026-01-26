@@ -1,8 +1,10 @@
 "use client";
 
 import { useRouter } from 'next/navigation';
+
 import { PRODUCTS } from '../../../lib/products';
 import BuyButton from '../../../components/BuyButton';
+import EDAIntermediateInsideKit from '../../../components/EDAIntermediateInsideKit';
 
 const PRODUCT_DETAILS = {
   'python-beginner-level': {
@@ -153,16 +155,23 @@ export default function ProductDetail({ params }) {
             </p>
           </section>
 
-          <section className="space-y-2 md:col-span-2">
-            <h2 className="text-base font-semibold" style={{ color: 'var(--color-text-primary)' }}>
-              What&apos;s inside each kit
-            </h2>
-            <ul className="list-disc pl-5 text-sm" style={{ color: 'var(--color-text-secondary)' }}>
-              {details.inside.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </section>
+          {/* Custom alternating photo/text section for EDA Intermediate */}
+          {product._id === 'eda-intermediate-level' ? (
+            <section className="space-y-2 md:col-span-2">
+              <EDAIntermediateInsideKit />
+            </section>
+          ) : (
+            <section className="space-y-2 md:col-span-2">
+              <h2 className="text-base font-semibold" style={{ color: 'var(--color-text-primary)' }}>
+                What&apos;s inside each kit
+              </h2>
+              <ul className="list-disc pl-5 text-sm" style={{ color: 'var(--color-text-secondary)' }}>
+                {details.inside.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </section>
+          )}
 
           <section className="space-y-2 md:col-span-2">
             <h2 className="text-base font-semibold" style={{ color: 'var(--color-text-primary)' }}>
