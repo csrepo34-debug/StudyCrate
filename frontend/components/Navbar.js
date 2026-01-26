@@ -73,25 +73,26 @@ export default function Navbar() {
           >
             {/* Animated active indicator, perfectly aligned */}
             {mainLinks.some(l => pathname.startsWith(l.href)) && (
-              <div
-                className="absolute z-0 transition-all duration-300"
-                style={{
-                  top: 4,
-                  left: mainLinks.reduce((acc, l, idx) => {
-                    if (idx < mainLinks.findIndex(l2 => pathname.startsWith(l2.href))) {
-                      // Each link's width: 0.5rem (px-3) left + text + 0.5rem right + gap-1 (0.25rem)
-                      // Approximate: 24px padding + 8px gap + 8px per char
-                      return acc + 24 + (l.label.length * 8) + 4;
-                    }
-                    return acc;
-                  }, 8),
-                  height: 36,
-                  borderRadius: 9999,
-                  background: 'var(--color-accent)',
-                  width: 24 + (mainLinks[mainLinks.findIndex(l => pathname.startsWith(l.href))].label.length * 8),
-                }}
-                aria-hidden="true"
-              />
+              (() => {
+                const activeIdx = mainLinks.findIndex(l2 => pathname.startsWith(l2.href));
+                // Each link is px-6 (24px left+right), gap-1 (4px), so left = idx * (linkWidth + gap)
+                const linkWidth = 88; // px-6 + text (fixed for 8-9 chars) + px-6
+                const gap = 4;
+                return (
+                  <div
+                    className="absolute z-0 transition-all duration-300"
+                    style={{
+                      top: 4,
+                      left: activeIdx * (linkWidth + gap),
+                      height: 36,
+                      borderRadius: 9999,
+                      background: 'var(--color-accent)',
+                      width: linkWidth,
+                    }}
+                    aria-hidden="true"
+                  />
+                );
+              })()
             )}
             {mainLinks.map((link, i) => {
               const isActive = pathname.startsWith(link.href);
