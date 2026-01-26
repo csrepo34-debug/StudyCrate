@@ -1,21 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-const categories = [
-  {
-    name: 'Programming',
-    icon: '💻',
-    description:
-      'Python and C learning paths that take you from first lines of code to building real-world, interview-ready projects.'
-  },
-  {
-    name: 'Data analysis',
-    icon: '📊',
-    description:
-      'Hands-on EDA notebooks and checklists that show you how to clean, visualize, and interpret real-world datasets.'
-  }
-];
-
 export default function HomePage() {
   return (
     <div className="space-y-8">
@@ -74,27 +59,21 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="grid md:grid-cols-3 gap-8" aria-label="Product categories">
-        {categories.map((category, index) => (
-          <div
-            key={category.name}
-            className={`card flex flex-col items-center text-center gap-2 ${index === 1 ? 'md:col-start-3' : ''}`}
-          >
-            <span
-              className="text-4xl mb-1"
-              role="img"
-              aria-label={category.name + ' icon'}
-            >
-              {category.icon}
-            </span>
-            <h3 className="font-semibold text-lg" style={{ color: 'var(--color-text-primary)' }}>
-              {category.name}
-            </h3>
-            <p className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>
-              {category.description}
-            </p>
-          </div>
-        ))}
+      <section className="card space-y-3 max-w-3xl mx-auto text-left">
+        <h2 className="text-xl font-semibold" style={{ color: 'var(--color-text-primary)' }}>
+          A focused digital shelf for self-learners
+        </h2>
+        <p className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>
+          StudyCrate is a small, carefully curated store for students and working
+          professionals who want to learn by doing. Instead of endless theory, each kit
+          gives you practical notes, solved examples, and ready-to-run projects so you
+          can move from &quot;I&apos;ve watched a course&quot; to &quot;I can actually build this&quot;.
+        </p>
+        <p className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>
+          Start with programming language kits to build a strong base in Python or C,
+          then explore data analysis through hands-on EDA workflows. Buy once, download
+          instantly, and revisit the material whenever you need a quick refresher.
+        </p>
       </section>
     </div>
   );

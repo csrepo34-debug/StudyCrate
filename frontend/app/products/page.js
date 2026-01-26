@@ -1,8 +1,6 @@
-import { PRODUCTS } from '../../lib/products';
-
 export default function ProductsPage() {
   return (
-    <div className="space-y-4">
+    <div className="space-y-6">
       <header className="space-y-2">
         <h1
           className="text-2xl font-semibold"
@@ -11,27 +9,47 @@ export default function ProductsPage() {
           StudyCrate products
         </h1>
         <p className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>
-          Programming bundles help you master Python and C step by step, while data analysis kits walk you through real EDA workflows on practical datasets.
+          Choose where you want to go deeper first: build a strong foundation in
+          programming languages, or learn how to explore and explain real datasets with
+          data analysis.
         </p>
       </header>
-      <div className="grid md:grid-cols-3 gap-4">
-        {PRODUCTS.map((p) => (
-          <article key={p._id} className="card">
-            <h2 className="font-semibold text-lg" style={{ color: 'var(--color-text-primary)' }}>
-              {p.title}
+
+      <div className="grid md:grid-cols-2 gap-6">
+        <article className="card flex flex-col justify-between">
+          <div className="space-y-2">
+            <h2 className="text-xl font-semibold" style={{ color: 'var(--color-text-primary)' }}>
+              Programming languages
             </h2>
-            <p
-              className="text-sm line-clamp-3"
-              style={{ color: 'var(--color-text-secondary)' }}
-            >
-              {p.description}
+            <p className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>
+              Step-by-step Python and C kits that move from absolute basics to
+              intermediate projects—ideal if you&apos;re starting out or tightening your
+              fundamentals.
             </p>
-            <p className="mt-2 text-brand-accent font-bold">₹{p.price}</p>
-            <a className="btn-primary inline-block mt-3" href={`/products/${p._id}`}>
-              View & buy
+          </div>
+          <div className="mt-4">
+            <a className="btn-primary" href="/products/programming-languages">
+              View language kits
             </a>
-          </article>
-        ))}
+          </div>
+        </article>
+
+        <article className="card flex flex-col justify-between">
+          <div className="space-y-2">
+            <h2 className="text-xl font-semibold" style={{ color: 'var(--color-text-primary)' }}>
+              Data analysis
+            </h2>
+            <p className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>
+              Exploratory Data Analysis (EDA) kits focused on cleaning, visualising, and
+              interpreting data so you can tell clear stories with numbers.
+            </p>
+          </div>
+          <div className="mt-4">
+            <a className="btn-primary" href="/products/data-analysis">
+              View analysis kits
+            </a>
+          </div>
+        </article>
       </div>
     </div>
   );

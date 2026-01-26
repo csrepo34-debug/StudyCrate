@@ -24,15 +24,17 @@ Edit `frontend/lib/products.js` and add a new product:
 - Restart frontend to see new product
 - Click product → Buy Now → Test checkout
 
-## Current Products
-```
-product_1.pdf  ← DSA Complete Notes
-product_2.pdf  ← Web Dev Bootcamp Code Pack
-product_3.pdf  ← ML Interview Questions
-product_4.pdf  ← System Design Guide
-product_5.pdf  ← Data Science Cheatsheet
-```
 
+## Current Products
+
+| File Name              | Product Name                              | Category              | Price |
+|------------------------|-------------------------------------------|-----------------------|-------|
+| Beginner_Python.zip    | Python Beginner Level                     | Programming Languages | 300   |
+| Intermediate_Python.zip| Python Intermediate Level                 | Programming Languages | 400   |
+| Beginner_C.zip         | C Beginner Level                          | Programming Languages | 300   |
+| Intermediate_C.zip     | C Intermediate Level                      | Programming Languages | 400   |
+| Beginner_EDA.zip       | Exploratory Data Analysis Beginner        | data analysis         | 10    |
+| Intermediate_EDA.zip   | Exploratory Data Analysis Intermediate    | data analysis         | 700   |
 ## File Size Limits
 - Default: 2MB per file (configured in backend)
 - Adjust in `backend/src/server.js` if needed
