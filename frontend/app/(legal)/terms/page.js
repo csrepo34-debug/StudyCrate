@@ -1,21 +1,19 @@
-"use client";
-import { useRouter } from 'next/navigation';
 export const metadata = { title: 'Terms and Conditions' };
 
 export default function TermsPage() {
-  const router = useRouter();
   return (
     <div className="space-y-4">
       {/* Back Button */}
-      <button
-        onClick={() => router.back()}
+      <a
+        href="#"
+        onClick={e => { e.preventDefault(); window.history.back(); }}
         className="flex items-center gap-2 text-sm px-3 py-1 rounded-md border border-gray-300 hover:bg-gray-100 transition mb-2"
         aria-label="Go back"
         style={{ color: 'var(--color-text-primary)', borderColor: 'var(--color-border)' }}
       >
         <span aria-hidden="true" style={{ fontSize: '1.1em', display: 'flex', alignItems: 'center' }}>&larr;</span>
         Back
-      </button>
+      </a>
       <div className="space-y-1 text-sm text-gray-600">
         <p><strong>Nature:</strong> Educational &amp; Technical Content Platform</p>
       </div>
