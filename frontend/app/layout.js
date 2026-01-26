@@ -41,34 +41,7 @@ export const metadata = {
   metadataBase: new URL('https://studycrate.com'),
 };
 
-import { usePathname } from 'next/navigation';
-import { useEffect, useRef } from 'react';
-
-function PageTransition({ children }) {
-  const ref = useRef();
-  const pathname = typeof window !== 'undefined' ? window.location.pathname : '';
-  useEffect(() => {
-    if (ref.current) {
-      ref.current.classList.remove('opacity-0');
-      ref.current.classList.add('opacity-100');
-    }
-    return () => {
-      if (ref.current) {
-        ref.current.classList.remove('opacity-100');
-        ref.current.classList.add('opacity-0');
-      }
-    };
-  }, [pathname]);
-  return (
-    <div
-      ref={ref}
-      className="transition-opacity duration-300 opacity-0"
-      style={{ minHeight: '100%' }}
-    >
-      {children}
-    </div>
-  );
-}
+import PageTransition from '../components/PageTransition';
 
 export default function RootLayout({ children }) {
   return (
