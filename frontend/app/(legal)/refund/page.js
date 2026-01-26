@@ -1,8 +1,21 @@
+"use client";
+import { useRouter } from 'next/navigation';
 export const metadata = { title: 'Refund & Cancellation' };
 
 export default function RefundPage() {
+  const router = useRouter();
   return (
-    <div className="space-y-3">
+    <div className="space-y-8">
+      {/* Back Button */}
+      <button
+        onClick={() => router.back()}
+        className="flex items-center gap-2 text-sm px-3 py-1 rounded-md border border-gray-300 hover:bg-gray-100 transition mb-2"
+        aria-label="Go back"
+        style={{ color: 'var(--color-text-primary)', borderColor: 'var(--color-border)' }}
+      >
+        <span aria-hidden="true" style={{ fontSize: '1.1em', display: 'flex', alignItems: 'center' }}>&larr;</span>
+        Back
+      </button>
       <h1 className="text-2xl font-semibold">1. Refund & Cancellation</h1>
       <p>At StudyCrate, we offer digital educational content delivered electronically. Please read this policy carefully before making a purchase.</p>
       
