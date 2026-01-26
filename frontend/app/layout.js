@@ -9,7 +9,34 @@ const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mon
 export const metadata = {
   title: 'StudyCrate | Programming & Data Analysis Kits',
   description:
-    'Downloadable study kits for Python, C programming, and exploratory data analysis (EDA) with real-world examples.'
+    'Downloadable study kits for Python, C programming, and exploratory data analysis (EDA) with real-world examples.',
+  openGraph: {
+    title: 'StudyCrate | Programming & Data Analysis Kits',
+    description: 'Downloadable study kits for Python, C programming, and exploratory data analysis (EDA) with real-world examples.',
+    url: 'https://studycrate.com',
+    siteName: 'StudyCrate',
+    images: [
+      {
+        url: '/studycrate-logo.png',
+        width: 400,
+        height: 400,
+        alt: 'StudyCrate logo',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'StudyCrate | Programming & Data Analysis Kits',
+    description: 'Downloadable study kits for Python, C programming, and exploratory data analysis (EDA) with real-world examples.',
+    images: ['/studycrate-logo.png'],
+    site: '@studycrate',
+  },
+  icons: {
+    icon: '/favicon.ico',
+  },
+  metadataBase: new URL('https://studycrate.com'),
 };
 
 export default function RootLayout({ children }) {
