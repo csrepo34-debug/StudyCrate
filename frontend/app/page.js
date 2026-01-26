@@ -4,11 +4,13 @@ import Image from 'next/image';
 const categories = [
   {
     name: 'Programming',
+    icon: '💻',
     description:
       'Python and C learning paths that take you from first lines of code to building real-world, interview-ready projects.'
   },
   {
     name: 'Data analysis',
+    icon: '📊',
     description:
       'Hands-on EDA notebooks and checklists that show you how to clean, visualize, and interpret real-world datasets.'
   }
@@ -72,12 +74,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="grid md:grid-cols-3 gap-8">
+      <section className="grid md:grid-cols-3 gap-8" aria-label="Product categories">
         {categories.map((category, index) => (
           <div
             key={category.name}
-            className={`card ${index === 1 ? 'md:col-start-3' : ''}`}
+            className={`card flex flex-col items-center text-center gap-2 ${index === 1 ? 'md:col-start-3' : ''}`}
           >
+            <span
+              className="text-4xl mb-1"
+              role="img"
+              aria-label={category.name + ' icon'}
+            >
+              {category.icon}
+            </span>
             <h3 className="font-semibold text-lg" style={{ color: 'var(--color-text-primary)' }}>
               {category.name}
             </h3>
