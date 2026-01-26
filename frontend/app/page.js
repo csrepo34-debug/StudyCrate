@@ -19,12 +19,13 @@ export default function HomePage() {
     <div className="space-y-8">
       <section className="text-center space-y-3">
         <div className="flex flex-col items-center gap-3">
-          <div className="inline-flex items-center justify-center rounded-full bg-white/80 shadow-sm p-3">
+          <div className="relative inline-flex items-center justify-center w-20 h-20 rounded-full bg-white/80 shadow-sm overflow-hidden">
             <Image
               src="/studycrate-logo.png"
               alt="StudyCrate alpha logo"
-              width={72}
-              height={72}
+              fill
+              className="object-contain"
+              sizes="80px"
               priority
             />
           </div>
@@ -71,9 +72,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="grid md:grid-cols-3 gap-4">
-        {categories.map((category) => (
-          <div key={category.name} className="card">
+      <section className="grid md:grid-cols-3 gap-8">
+        {categories.map((category, index) => (
+          <div
+            key={category.name}
+            className={`card ${index === 1 ? 'md:col-start-3' : ''}`}
+          >
             <h3 className="font-semibold text-lg" style={{ color: 'var(--color-text-primary)' }}>
               {category.name}
             </h3>
