@@ -69,13 +69,15 @@ export default function Navbar() {
         >
           <div className="hidden sm:flex items-center gap-1 rounded-full bg-white/60 px-1 py-0.5 shadow-sm relative min-h-[38px]">
             {/* Animated active indicator */}
-            <div
-              className="absolute top-1 left-0 h-7 w-20 rounded-full bg-[var(--color-accent)] z-0 transition-all duration-300"
-              style={{
-                transform: `translateX(${mainLinks.findIndex(l => pathname.startsWith(l.href)) * 88}px)`
-              }}
-              aria-hidden="true"
-            />
+            {mainLinks.some(l => pathname.startsWith(l.href)) && (
+              <div
+                className="absolute top-1 left-0 h-7 w-20 rounded-full bg-[var(--color-accent)] z-0 transition-all duration-300"
+                style={{
+                  transform: `translateX(${mainLinks.findIndex(l => pathname.startsWith(l.href)) * 88}px)`
+                }}
+                aria-hidden="true"
+              />
+            )}
             {mainLinks.map((link, i) => {
               const isActive = pathname.startsWith(link.href);
               return (
