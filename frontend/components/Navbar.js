@@ -67,13 +67,28 @@ export default function Navbar() {
           style={{ color: 'var(--color-text-secondary)' }}
           aria-label="Primary"
         >
-          <div className="hidden sm:flex items-center gap-1 rounded-full bg-white/60 px-1 py-0.5 shadow-sm relative min-h-[38px]">
-            {/* Animated active indicator */}
+          <div
+            className="hidden sm:flex items-center gap-1 rounded-full bg-white/60 px-1 py-0.5 shadow-sm relative min-h-[38px]"
+            style={{ position: 'relative' }}
+          >
+            {/* Animated active indicator, perfectly aligned */}
             {mainLinks.some(l => pathname.startsWith(l.href)) && (
               <div
-                className="absolute top-1 left-0 h-7 w-20 rounded-full bg-[var(--color-accent)] z-0 transition-all duration-300"
+                className="absolute z-0 transition-all duration-300"
                 style={{
-                  transform: `translateX(${mainLinks.findIndex(l => pathname.startsWith(l.href)) * 88}px)`
+                  top: 4,
+                  left: mainLinks.reduce((acc, l, idx) => {
+                    if (idx < mainLinks.findIndex(l2 => pathname.startsWith(l2.href))) {
+                      // Each link's width: 0.5rem (px-3) left + text + 0.5rem right + gap-1 (0.25rem)
+                      // Approximate: 24px padding + 8px gap + 8px per char
+                      return acc + 24 + (l.label.length * 8) + 4;
+                    }
+                    return acc;
+                  }, 8),
+                  height: 36,
+                  borderRadius: 9999,
+                  background: 'var(--color-accent)',
+                  width: 24 + (mainLinks[mainLinks.findIndex(l => pathname.startsWith(l.href))].label.length * 8),
                 }}
                 aria-hidden="true"
               />
@@ -84,7 +99,7 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`relative z-10 px-3 py-1 rounded-full transition-colors ${
+                  className={`relative z-10 px-6 py-2 rounded-full font-medium transition-colors ${
                     isActive
                       ? 'text-white'
                       : 'hover:bg-[var(--color-accent)]/10'

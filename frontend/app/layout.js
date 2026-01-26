@@ -35,16 +35,49 @@ export const metadata = {
   },
   icons: {
     icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
   },
   metadataBase: new URL('https://studycrate.com'),
 };
+
+import { usePathname } from 'next/navigation';
+import { useEffect, useRef } from 'react';
+
+function PageTransition({ children }) {
+  const ref = useRef();
+  const pathname = typeof window !== 'undefined' ? window.location.pathname : '';
+  useEffect(() => {
+    if (ref.current) {
+      ref.current.classList.remove('opacity-0');
+      ref.current.classList.add('opacity-100');
+    }
+    return () => {
+      if (ref.current) {
+        ref.current.classList.remove('opacity-100');
+        ref.current.classList.add('opacity-0');
+      }
+    };
+  }, [pathname]);
+  return (
+    <div
+      ref={ref}
+      className="transition-opacity duration-300 opacity-0"
+      style={{ minHeight: '100%' }}
+    >
+      {children}
+    </div>
+  );
+}
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.className} ${jetbrainsMono.variable} min-h-screen flex flex-col`}>
         <Navbar />
-        <main className="flex-1 max-w-5xl w-full mx-auto px-4 py-6">{children}</main>
+        <main className="flex-1 max-w-5xl w-full mx-auto px-4 py-6">
+          <PageTransition>{children}</PageTransition>
+        </main>
         <Footer />
       </body>
     </html>
