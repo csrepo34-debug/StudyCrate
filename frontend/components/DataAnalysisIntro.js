@@ -8,7 +8,9 @@ export default function DataAnalysisIntro() {
           Read. Practice. Test.
         </h2>
         <p className="text-lg text-gray-700 max-w-lg">
-          Learn Exploratory Data Analysis through a structured, outcome-focused approach. Each unit includes clear theory PDFs, hands-on practice notebooks, and exercise-based tests using real-world datasets to help you build practical data analysis skills. <br><br></br></br><b>Designed for students, developers, and aspiring data analysts.</b>
+          Learn Exploratory Data Analysis through a structured, outcome-focused approach. Each unit includes clear theory PDFs, hands-on practice notebooks, and exercise-based tests using real-world datasets to help you build practical data analysis skills.
+          <br /><br />
+          <b>Designed for students, developers, and aspiring data analysts.</b>
         </p>
       </div>
       <div className="flex-1 flex justify-center order-1 md:order-2">

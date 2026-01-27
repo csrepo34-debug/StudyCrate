@@ -22,6 +22,13 @@
 			"type": "shell",
 			"command": "cd frontend; npm test",
 			"group": "test"
+		},
+		{
+			"label": "Build Frontend for Vercel",
+			"type": "shell",
+			"command": "cd frontend; npm run build",
+			"isBackground": false,
+			"group": "build"
 		}
 	]
 }
