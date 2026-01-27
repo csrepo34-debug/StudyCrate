@@ -15,10 +15,10 @@ export default function DataAnalysisIntro() {
       </div>
       <div className="flex-1 flex justify-center order-1 md:order-2">
         <Image
-          src="/eda-main-page/data-analysis-2.png"
+          src="/eda-main-page/data-analysis-1.png"
           alt="Read Practice Test"
-          width={600}
-          height={400}
+          width={800}
+          height={533}
           className="rounded-lg shadow-lg object-cover data-intro-image"
         />
       </div>
