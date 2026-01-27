@@ -1,6 +1,7 @@
 html {
   overflow-y: scroll;
 }
+@import './fonts.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
