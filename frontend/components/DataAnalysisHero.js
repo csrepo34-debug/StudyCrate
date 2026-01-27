@@ -19,7 +19,7 @@ export default function HeroSection({ onCTAClick }) {
       </div>
       <div className="flex-1 flex justify-center items-center mt-8 md:mt-0">
         <Image
-          src="/images/7172-combine.png"
+          src="/EDA%20main%20page/7172-combine.png"
           alt="Data Analysis Hero"
           width={420}
           height={320}

@@ -13,7 +13,7 @@ export default function DataAnalysisIntro() {
       </div>
       <div className="flex-1 flex justify-center order-1 md:order-2">
         <Image
-          src="/images/7172-combine.png"
+          src="/EDA%20main%20page/7172-combine.png"
           alt="Assess Monitor Measure"
           width={400}
           height={300}

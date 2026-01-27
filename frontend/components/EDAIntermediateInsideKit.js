@@ -2,17 +2,17 @@ import Image from 'next/image';
 
 const INSIDE_KIT_BLOCKS = [
   {
-    image: '/images/7172-combine.png',
+    image: '/EDA%20main%20page/7172-combine.png',
     alt: 'Feature Engineering',
     text: 'Notebooks focusing on feature engineering and transformations. Tackle real datasets and learn how to create new features that reveal deeper insights.'
   },
   {
-    image: '/images/7172-combine.png',
+    image: '/EDA%20main%20page/7172-combine.png',
     alt: 'Practice Notebooks',
     text: 'Practice notebooks: Apply your skills with hands-on exercises and guided projects, just like in real-world analysis.'
   },
   {
-    image: '/images/7172-combine.png',
+    image: '/EDA%20main%20page/7172-combine.png',
     alt: 'EDA Exercises',
     text: 'Exercises: Test your understanding with targeted EDA challenges and build confidence for interviews or portfolio work.'
   }

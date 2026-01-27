@@ -2,15 +2,15 @@ export default function AlternatingSection() {
   // Placeholder video and text content for three rows
   const sections = [
     {
-      video: '/videos/read.mkv',
+      video: '/EDA%20main%20page/read.mkv',
       text: 'Read: Start with clear, concise guides that break down EDA concepts and workflows. Each kit includes step-by-step explanations and practical checklists.'
     },
     {
-      video: '/videos/practice.mkv',
+      video: '/EDA%20main%20page/practice.mkv',
       text: 'Practice: Apply what you learn with hands-on exercises and real datasets. Our interactive notebooks help you build confidence and skill.'
     },
     {
-      video: '/videos/test.mkv',
+      video: '/EDA%20main%20page/test.mkv',
       text: 'Test: Check your understanding with quizzes and mini-projects that reinforce key ideas and prepare you for real analysis.'
     }
   ];
