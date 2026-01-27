@@ -79,9 +79,9 @@ const PRODUCT_DETAILS = {
   },
   'eda-intermediate-level': {
     solves:
-      'You can do basic plots, but struggle to go deeper into feature relationships and storytelling with data.',
+      'You can create basic plots, but struggle to uncover meaningful feature relationships, apply transformations, and tell a clear story with data. This kit helps you move beyond surface-level analysis.',
     whoFor:
-      'Learners who completed beginner EDA or basic data analysis courses and now want more structure and depth.',
+      'Learners who have completed beginner-level EDA or basic data analysis courses and now want deeper structure, stronger workflows, and more analytical confidence.',
     inside: [
       'Notebooks focusing on feature engineering and transformations.',
       'Side-by-side visualisations that compare multiple variables.',
@@ -89,7 +89,7 @@ const PRODUCT_DETAILS = {
       'Reusable templates for project or portfolio EDA reports.'
     ],
     success:
-      'You&apos;ll be able to run end-to-end EDA for small projects, explain your findings clearly, and reuse the same workflow for interviews or portfolios.'
+      'You\'ll be able to run end-to-end EDA for small projects, explain your findings clearly, and reuse the same workflow for interviews or portfolios.'
   }
 };
 
@@ -126,7 +126,9 @@ export default function ProductDetail({ params }) {
           {product.title}
         </h1>
         <p style={{ color: 'var(--color-text-secondary)' }}>
-          {product.description}
+          {product._id === 'eda-intermediate-level'
+            ? 'Intermediate-level Exploratory Data Analysis materials covering feature engineering, advanced data visualization, and deeper data insights. Designed for students, developers, and aspiring data analysts.'
+            : product.description}
         </p>
         <p className="text-2xl font-semibold text-brand-accent">₹{product.price}</p>
 		<BuyButton

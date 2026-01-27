@@ -5,7 +5,7 @@ export default function HeroSection({ onCTAClick }) {
     <section className="relative flex flex-col md:flex-row items-center justify-between py-10 md:py-20 px-4 md:px-12 bg-white rounded-lg shadow-lg overflow-hidden mb-8">
       <div className="flex-1 z-10">
         <h1 className="text-3xl md:text-5xl font-bold mb-4 text-gray-900">
-          Soil to Sky Technology : <span className="text-brand-accent">Data Analysis Kits</span>
+          Data Analysis Kits
         </h1>
         <p className="text-lg md:text-xl text-gray-700 mb-6 max-w-xl">
           Learn Exploratory Data Analysis (EDA) by working through guided notebooks and checklists on real-world style datasets.

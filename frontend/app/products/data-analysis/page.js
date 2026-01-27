@@ -53,12 +53,18 @@ export default function DataAnalysisPage() {
                 {p.title}
               </h3>
               <p className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>
-                {p.description}
+                {p._id === 'eda-beginner-level'
+                  ? 'Beginner-friendly EDA units covering data exploration, data cleaning, and basic analysis. Each unit includes a theory PDF, a practice notebook, and exercise-based tests to help you understand datasets from scratch.'
+                  : p._id === 'eda-intermediate-level'
+                  ? 'Intermediate-level EDA units focused on feature engineering, advanced visualizations, and deeper data insights. Learn through structured PDFs, hands-on notebooks, and applied exercises using real datasets.'
+                  : p.description}
               </p>
               <p className="mt-2 text-brand-accent font-bold">₹{p.price}</p>
-              <a className="btn-primary inline-block mt-3" href={`/products/${p._id}`}>
-                View details
-              </a>
+              <div className="w-full flex justify-center mt-3">
+                <a className="btn-primary" href={`/products/${p._id}`}>
+                  View details
+                </a>
+              </div>
             </article>
           ))}
         </div>
