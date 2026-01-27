@@ -7,7 +7,7 @@ export default function DataAnalysisIntro() {
         <h2 className="data-intro-heading mb-4 text-gray-900 font-sans">
           Read. Practice. Test.
         </h2>
-        <p className="data-intro-text text-gray-700 max-w-2xl font-sans">
+        <p className="data-intro-text text-gray-700 max-w-xl font-sans">
           Learn Exploratory Data Analysis through a structured, outcome-focused approach. Each unit includes clear theory PDFs, hands-on practice notebooks, and exercise-based tests using real-world datasets to help you build practical data analysis skills.
           <br /><br />
           <b>Designed for students, developers, and aspiring data analysts.</b>
