@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function DataAnalysisIntro() {
   return (
-    <section className="flex flex-col md:flex-row items-center gap-8 py-10 md:py-16 px-4 md:px-12 data-intro-section">
+    <section className="flex flex-col md:flex-row items-center gap-16 py-10 md:py-16 px-4 md:px-12 data-intro-section">
       <div className="flex-1 order-2 md:order-1">
         <h2 className="data-intro-heading mb-4 text-gray-900 font-sans">
           Read. Practice. Test.
@@ -17,8 +17,8 @@ export default function DataAnalysisIntro() {
         <Image
           src="/eda-main-page/data-analysis-2.png"
           alt="Read Practice Test"
-          width={480}
-          height={340}
+          width={600}
+          height={400}
           className="rounded-lg shadow-lg object-cover data-intro-image"
         />
       </div>
