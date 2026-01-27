@@ -28,25 +28,27 @@ export default function DataAnalysisPage() {
         </h2>
         <div className="grid md:grid-cols-2 gap-6">
           {dataProducts.map((p) => (
-            <article key={p._id} className="card flex flex-col items-start">
-              {p._id === 'eda-beginner-level' && (
-                <Image
-                  src="/EDA%20main%20page/Beginner/EDA%20Beginner%20Banner.png"
-                  alt="EDA Beginner Banner"
-                  width={400}
-                  height={120}
-                  className="rounded-md mb-3 object-cover"
-                />
-              )}
-              {p._id === 'eda-intermediate-level' && (
-                <Image
-                  src="/EDA%20main%20page/Intermediate/EDA%20Intermediate%20Banner.png"
-                  alt="EDA Intermediate Banner"
-                  width={400}
-                  height={120}
-                  className="rounded-md mb-3 object-cover"
-                />
-              )}
+            <article key={p._id} className="card flex flex-col h-full">
+              <div className="flex-1 flex items-center justify-center w-full mb-3" style={{ minHeight: 180 }}>
+                {p._id === 'eda-beginner-level' && (
+                  <Image
+                    src="/EDA%20main%20page/Beginner/EDA%20Beginner%20Banner.png"
+                    alt="EDA Beginner Banner"
+                    width={400}
+                    height={120}
+                    className="rounded-md object-cover"
+                  />
+                )}
+                {p._id === 'eda-intermediate-level' && (
+                  <Image
+                    src="/EDA%20main%20page/Intermediate/EDA%20Intermediate%20Banner.png"
+                    alt="EDA Intermediate Banner"
+                    width={400}
+                    height={120}
+                    className="rounded-md object-cover"
+                  />
+                )}
+              </div>
               <h3 className="font-semibold text-lg" style={{ color: 'var(--color-text-primary)' }}>
                 {p.title}
               </h3>
