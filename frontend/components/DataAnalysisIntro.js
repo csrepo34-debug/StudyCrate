@@ -13,7 +13,7 @@ export default function DataAnalysisIntro() {
       </div>
       <div className="flex-1 flex justify-center order-1 md:order-2">
         <Image
-          src="/eda-main-page/7172-combine.png"
+          src="/eda-main-page/data-analysis-2.png"
           alt="Read Practice Test"
           width={400}
           height={300}

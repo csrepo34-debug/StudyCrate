@@ -32,7 +32,7 @@ export default function DataAnalysisPage() {
               <div className="flex-1 flex items-center justify-center w-full mb-3" style={{ minHeight: 180 }}>
                 {p._id === 'eda-beginner-level' && (
                   <Image
-                    src="/eda-main-page/beginner/EDA%20Beginner%20Banner.png"
+                    src="/eda-main-page/beginner/eda-beginner-banner.png"
                     alt="EDA Beginner Banner"
                     width={400}
                     height={120}
@@ -41,7 +41,7 @@ export default function DataAnalysisPage() {
                 )}
                 {p._id === 'eda-intermediate-level' && (
                   <Image
-                    src="/eda-main-page/intermediate/EDA%20Intermediate%20Banner.png"
+                    src="/eda-main-page/intermediate/eda-intermediate-banner.png"
                     alt="EDA Intermediate Banner"
                     width={400}
                     height={120}
