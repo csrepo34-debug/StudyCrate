@@ -1,6 +1,6 @@
 html {
   overflow-y: scroll;
-  font-size: 10px; /* Large, modern base font size */
+  font-size: 16px; /* Standard base font size */
 }
 @import './fonts.css';
 @tailwind base; 
@@ -32,34 +32,34 @@ body {
     radial-gradient(circle at 100% 100%, rgba(219, 234, 254, 0.9), transparent 55%),
     var(--color-bg);
   color: var(--color-text-secondary);
-  font-size: 0.625rem; /* 10px for body text */
+  font-size: 1rem; /* 16px for body text */
   font-family: 'Montserrat', Arial, sans-serif;
   font-weight: 500;
 }
 
 h1, .h1 {
-  font-size: 1.75rem; /* 28px */
+  font-size: 2.25rem; /* 36px */
   font-weight: 700;
   line-height: 1.1;
   margin-bottom: 0.5em;
 }
 h2, .h2 {
-  font-size: 1.375rem; /* 22px */
+  font-size: 1.5rem; /* 24px */
   font-weight: 700;
   line-height: 1.15;
   margin-bottom: 0.5em;
 }
 h3, .h3 {
-  font-size: 1.125rem; /* 18px */
+  font-size: 1.25rem; /* 20px */
   font-weight: 700;
   margin-bottom: 0.5em;
 }
 h4, .h4 {
-  font-size: 0.875rem;
+  font-size: 1.125rem;
   font-weight: 700;
 }
 p, .p, li {
-  font-size: 0.625rem; /* 10px */
+  font-size: 1rem; /* 16px */
   font-weight: 500;
   line-height: 1.7;
 }
