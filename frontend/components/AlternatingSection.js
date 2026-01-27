@@ -2,15 +2,15 @@ export default function AlternatingSection() {
   // Placeholder video and text content for three rows
   const sections = [
     {
-      video: '/EDA%20main%20page/read.mkv',
+      video: '/eda-main-page/read.mkv',
       text: 'Read: Start with well-structured PDF guides that explain Exploratory Data Analysis concepts, workflows, and best practices in a clear, concise way. Each unit breaks down ideas step by step with practical examples and checklists.'
     },
     {
-      video: '/EDA%20main%20page/practice.mkv',
+      video: '/eda-main-page/practice.mkv',
       text: 'Practice: Apply what you learn using hands-on Jupyter notebooks and real datasets. These practical notebooks help you implement EDA techniques, explore data patterns, and build confidence through guided practice.'
     },
     {
-      video: '/EDA%20main%20page/test.mkv',
+      video: '/eda-main-page/test.mkv',
       text: 'Test: Test your understanding with exercise-based notebooks and mini tasks that reinforce core EDA concepts and prepare you for real-world analysis, projects, and interviews.'
     }
   ];
