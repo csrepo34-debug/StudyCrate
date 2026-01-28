@@ -158,10 +158,39 @@ export default function ProductDetail({ params }) {
           </section>
 
           {/* Custom alternating photo/text section for EDA Intermediate */}
+
           {product._id === 'eda-intermediate-level' ? (
-            <section className="space-y-2 md:col-span-2">
-              <EDAIntermediateInsideKit />
-            </section>
+            <>
+              <section className="space-y-2 md:col-span-2">
+                <EDAIntermediateInsideKit />
+              </section>
+              {/* Structure of the EDA Beginner Course Section */}
+              <section className="space-y-4 md:col-span-2">
+                <h2 className="text-base font-semibold mt-6" style={{ color: 'var(--color-text-primary)' }}>
+                  Structure of the EDA Beginner Course
+                </h2>
+                <ul className="list-disc pl-5 text-sm space-y-2" style={{ color: 'var(--color-text-secondary)' }}>
+                  <li>
+                    <b>Bivariate Analysis:</b> Explore relationships between two variables using scatter plots, cross-tabulations, and correlation measures to uncover patterns and trends.
+                  </li>
+                  <li>
+                    <b>Correlation Relationships:</b> Learn how to quantify and interpret the strength and direction of relationships between variables using correlation coefficients.
+                  </li>
+                  <li>
+                    <b>Grouping & Aggregation:</b> Summarize data by categories or groups to reveal insights, trends, and differences across segments using groupby and aggregation techniques.
+                  </li>
+                  <li>
+                    <b>Data Cleaning:</b> Practice identifying and handling missing values, outliers, and inconsistencies to prepare datasets for accurate analysis.
+                  </li>
+                  <li>
+                    <b>Feature-Target Analysis:</b> Analyze how input features relate to the target variable, helping you select relevant predictors and understand their impact.
+                  </li>
+                  <li>
+                    <b>Multivariate Analysis:</b> Dive into techniques for examining relationships among three or more variables, using visualizations and statistics to uncover deeper insights.
+                  </li>
+                </ul>
+              </section>
+            </>
           ) : (
             <section className="space-y-2 md:col-span-2">
               <h2 className="text-base font-semibold" style={{ color: 'var(--color-text-primary)' }}>
