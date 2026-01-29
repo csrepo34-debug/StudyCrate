@@ -19,15 +19,47 @@ export default function ProgrammingLanguagesPage() {
         <span aria-hidden="true" style={{ fontSize: '1.1em', display: 'flex', alignItems: 'center' }}>&larr;</span>
         Back
       </button>
-      <header className="space-y-2">
-        <h1 className="text-2xl font-semibold" style={{ color: 'var(--color-text-primary)' }}>
-          Programming language kits
+      <header className="space-y-2 text-center">
+        <h1 className="text-2xl font-semibold mx-auto" style={{ color: 'var(--color-text-primary)' }}>
+          Programming Language Kits
         </h1>
-        <p className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>
-          Move from syntax to real programs with structured paths for Python and C,
-          split into beginner and intermediate levels.
+        <p className="text-sm mx-auto max-w-2xl" style={{ color: 'var(--color-text-secondary)' }}>
+          Move from syntax to real programs with structured paths for Python and C, split into beginner and intermediate levels.
         </p>
       </header>
+
+      {/* Read. Practice. Test. Section */}
+      <section className="my-8">
+        <h2 className="text-xl font-semibold mb-4 text-center" style={{ color: 'var(--color-text-primary)' }}>
+          Read. Practice. Test.
+        </h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          {/* Read */}
+          <div className="bg-white rounded-lg shadow p-4 flex flex-col items-center">
+            <img src="/prog-lang-main-page/read.png" alt="Read Python and C" className="rounded-md mb-3 w-full max-w-xs object-cover" style={{minHeight:120}} />
+            <h3 className="font-semibold mb-2">Read</h3>
+            <p className="text-sm text-center" style={{ color: 'var(--color-text-secondary)' }}>
+              Start with well-structured PDFs and guides that explain Python and C programming concepts, syntax, and best practices in a clear, concise way. Each unit breaks down ideas step by step with practical examples and checklists.
+            </p>
+          </div>
+          {/* Practice */}
+          <div className="bg-white rounded-lg shadow p-4 flex flex-col items-center">
+            <video src="/prog-lang-main-page/practice.mp4" controls className="rounded-md mb-3 w-full max-w-xs object-cover" style={{minHeight:120}} />
+            <h3 className="font-semibold mb-2">Practice</h3>
+            <p className="text-sm text-center" style={{ color: 'var(--color-text-secondary)' }}>
+              Apply what you learn using hands-on coding exercises and projects for Python and C. These practical tasks help you implement programming techniques, explore language features, and build confidence through guided practice.
+            </p>
+          </div>
+          {/* Test */}
+          <div className="bg-white rounded-lg shadow p-4 flex flex-col items-center">
+            <video src="/prog-lang-main-page/test.mp4" controls className="rounded-md mb-3 w-full max-w-xs object-cover" style={{minHeight:120}} />
+            <h3 className="font-semibold mb-2">Test</h3>
+            <p className="text-sm text-center" style={{ color: 'var(--color-text-secondary)' }}>
+              Test your understanding with exercise-based coding challenges and quizzes that reinforce core programming concepts and prepare you for real-world projects and interviews.
+            </p>
+          </div>
+        </div>
+      </section>
       <div className="grid md:grid-cols-2 gap-4">
         {languageProducts.map((p) => {
           // Map product id to banner image path
