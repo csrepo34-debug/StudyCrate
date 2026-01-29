@@ -6,6 +6,7 @@ import Image from 'next/image';
 import DataAnalysisHero from '../../../components/DataAnalysisHero';
 import DataAnalysisIntro from '../../../components/DataAnalysisIntro';
 import AlternatingSection from '../../../components/AlternatingSection';
+import BackButton from '../../../components/BackButton';
 
 export default function DataAnalysisPage() {
   const productsRef = useRef(null);
@@ -19,6 +20,7 @@ export default function DataAnalysisPage() {
 
   return (
     <div className="space-y-8">
+      <BackButton className="mb-2" />
       <DataAnalysisHero onCTAClick={handleCTAClick} />
       <DataAnalysisIntro />
       <AlternatingSection />
