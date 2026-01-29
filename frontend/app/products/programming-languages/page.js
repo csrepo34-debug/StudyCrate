@@ -71,8 +71,6 @@ export default function ProgrammingLanguagesPage() {
               </a>
             </article>
           );
-            </a>
-          </article>
         ))}
       </div>
     </div>
