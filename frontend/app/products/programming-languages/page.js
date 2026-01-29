@@ -35,25 +35,31 @@ export default function ProgrammingLanguagesPage() {
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
           {/* Read */}
-          <div className="bg-white rounded-lg shadow p-4 flex flex-col items-center">
-            <img src="/prog-lang-main-page/read.png" alt="Read Python and C" className="rounded-md mb-3 w-full max-w-xs object-cover" style={{minHeight:120}} />
-            <h3 className="font-semibold mb-2">Read</h3>
+          <div className="card flex flex-col h-full items-center p-4">
+            <div className="flex-1 flex items-center justify-center w-full mb-3" style={{ minHeight: 120 }}>
+              <img src="/prog-lang-main-page/read.png" alt="Read Python and C" width={320} height={120} className="rounded-md object-cover" />
+            </div>
+            <h3 className="font-semibold mb-2 text-center">Read</h3>
             <p className="text-sm text-center" style={{ color: 'var(--color-text-secondary)' }}>
               Start with well-structured PDFs and guides that explain Python and C programming concepts, syntax, and best practices in a clear, concise way. Each unit breaks down ideas step by step with practical examples and checklists.
             </p>
           </div>
           {/* Practice */}
-          <div className="bg-white rounded-lg shadow p-4 flex flex-col items-center">
-            <video src="/prog-lang-main-page/practice.mp4" controls className="rounded-md mb-3 w-full max-w-xs object-cover" style={{minHeight:120}} />
-            <h3 className="font-semibold mb-2">Practice</h3>
+          <div className="card flex flex-col h-full items-center p-4">
+            <div className="flex-1 flex items-center justify-center w-full mb-3" style={{ minHeight: 120 }}>
+              <video src="/prog-lang-main-page/practice.mp4" controls width={320} height={120} className="rounded-md object-cover bg-black" preload="metadata" />
+            </div>
+            <h3 className="font-semibold mb-2 text-center">Practice</h3>
             <p className="text-sm text-center" style={{ color: 'var(--color-text-secondary)' }}>
               Apply what you learn using hands-on coding exercises and projects for Python and C. These practical tasks help you implement programming techniques, explore language features, and build confidence through guided practice.
             </p>
           </div>
           {/* Test */}
-          <div className="bg-white rounded-lg shadow p-4 flex flex-col items-center">
-            <video src="/prog-lang-main-page/test.mp4" controls className="rounded-md mb-3 w-full max-w-xs object-cover" style={{minHeight:120}} />
-            <h3 className="font-semibold mb-2">Test</h3>
+          <div className="card flex flex-col h-full items-center p-4">
+            <div className="flex-1 flex items-center justify-center w-full mb-3" style={{ minHeight: 120 }}>
+              <video src="/prog-lang-main-page/test.mp4" controls width={320} height={120} className="rounded-md object-cover bg-black" preload="metadata" />
+            </div>
+            <h3 className="font-semibold mb-2 text-center">Test</h3>
             <p className="text-sm text-center" style={{ color: 'var(--color-text-secondary)' }}>
               Test your understanding with exercise-based coding challenges and quizzes that reinforce core programming concepts and prepare you for real-world projects and interviews.
             </p>
