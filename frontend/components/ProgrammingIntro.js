@@ -15,7 +15,7 @@ export default function ProgrammingIntro() {
       </div>
       <div className="flex-1 flex justify-center order-1 md:order-2">
         <Image
-          src="/prog-lang-main-page/read.png"
+          src="/prog-lang-main-page/prog-lang-1.png"
           alt="Programming Read Practice Test"
           width={400}
           height={300}
