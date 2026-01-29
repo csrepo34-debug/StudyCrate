@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { PRODUCTS } from '../../../lib/products';
 import BuyButton from '../../../components/BuyButton';
 import EDAIntermediateInsideKit from '../../../components/EDAIntermediateInsideKit';
+import EDABeginnerInsideKit from '../../../components/EDABeginnerInsideKit';
 
 const PRODUCT_DETAILS = {
   'python-beginner-level': {
@@ -157,10 +158,14 @@ export default function ProductDetail({ params }) {
             </p>
           </section>
 
-          {/* Custom alternating photo/text section for EDA Intermediate */}
+          {/* Custom alternating photo/text section for EDA Beginner & Intermediate */}
           {product._id === 'eda-intermediate-level' ? (
             <section className="space-y-2 md:col-span-2">
               <EDAIntermediateInsideKit />
+            </section>
+          ) : product._id === 'eda-beginner-level' ? (
+            <section className="space-y-2 md:col-span-2">
+              <EDABeginnerInsideKit />
             </section>
           ) : (
             <section className="space-y-2 md:col-span-2">
