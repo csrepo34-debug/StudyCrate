@@ -46,19 +46,18 @@ export default function ProgrammingLanguagesPage() {
             }
           }
           return (
-            <article key={p._id} className="card flex flex-col">
-              {bannerSrc && (
-                <div className="w-full aspect-[3/1] relative rounded-t-md overflow-hidden mb-2">
+            <article key={p._id} className="card flex flex-col h-full">
+              <div className="flex-1 flex items-center justify-center w-full mb-3" style={{ minHeight: 180 }}>
+                {bannerSrc && (
                   <Image
                     src={bannerSrc}
                     alt={`${p.title} Banner`}
-                    fill
-                    style={{ objectFit: 'cover' }}
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    priority
+                    width={400}
+                    height={120}
+                    className="rounded-md object-cover"
                   />
-                </div>
-              )}
+                )}
+              </div>
               <h2 className="font-semibold text-lg" style={{ color: 'var(--color-text-primary)' }}>
                 {p.title}
               </h2>
@@ -66,9 +65,11 @@ export default function ProgrammingLanguagesPage() {
                 {p.description}
               </p>
               <p className="mt-2 text-brand-accent font-bold">₹{p.price}</p>
-              <a className="btn-primary inline-block mt-3" href={`/products/${p._id}`}>
-                View details
-              </a>
+              <div className="flex justify-center mt-3">
+                <a className="btn-primary" href={`/products/${p._id}`}>
+                  View details
+                </a>
+              </div>
             </article>
           );
         })}
